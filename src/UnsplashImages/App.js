@@ -25,3 +25,32 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+// ------------------------------------------this is Class based Component -----
+// class App extends React.Component {
+//   state = {
+//     images: [],
+//   };
+//   submitForm = async (term) => {
+//     const {
+//       data: { results },
+//     } = await unsplash.get("/search/photos", {
+//       params: { query: term },
+//     });
+//     console.log(results);
+//     this.setState({ images: results });
+//   };
+//   render() {
+//     return (
+//       <div>
+//         <SearchBar submitForm={this.submitForm} />
+//         <ImageList images={this.state.images} />
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
