@@ -2,15 +2,8 @@ import React, { useState } from "react";
 import "./VideoItem.css";
 
 const VideoItem = ({ video, onVideoSelect }) => {
-  const [modalOpen, setModalOpen] = useState(false);
   let imageAvatar = images[Math.floor(Math.random() * images.length)];
 
-  const hanldeModal = () => {
-    if (video) {
-      setModalOpen(!modalOpen);
-    }
-  };
-  
   return (
     <div onClick={() => onVideoSelect(video)} className="video__card">
       <img

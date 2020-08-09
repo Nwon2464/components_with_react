@@ -8,12 +8,15 @@ import BodyRight from "./Body/BodyRight";
 import BodyLeft from "./Body/BodyLeft";
 import Modal from "./Modal";
 import youtube from "./apis/youtube";
+import history from "./history";
+const KEY = "AIzaSyC0oraH7K4oODv6UPAgBeFG0uW8IpFKoVc";
 
-const KEY = "AIzaSyB_csrPZiDs4dD7wZ8uThfqK9uY4K86azU";
-
-const App4 = () => {
+const App4 = (props) => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const [showModal, setShowModal] = useState(false);
+
   const onSubmitForm = async (term) => {
     const response = await youtube.get("/search", {
       params: {
@@ -27,14 +30,26 @@ const App4 = () => {
     setVideos(response.data.items);
   };
   const onVideoSelect = (video) => {
+    setShowModal(true);
     setSelectedVideo(video);
-    // return <Modal />;
   };
+
+  const onPortalDismiss = () => {
+    setShowModal(false);
+    props.history.push("/");
+  };
+
   useEffect(() => {
     onSubmitForm("sky");
   }, []);
   return (
     <div>
+      {showModal ? (
+        <Modal
+          onPortalDismiss={onPortalDismiss}
+          selectedVideo={selectedVideo}
+        />
+      ) : null}
       <Header onSubmitForm={onSubmitForm} />
       <div className="app__body">
         <BodyLeft />

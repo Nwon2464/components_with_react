@@ -1,18 +1,34 @@
-import React from "react";
+import "./Modal.css";
+import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 
-import history from "./history";
-const Modal = (props) => {
+const Modal = ({
+  onPortalDismiss,
+
+  selectedVideo: {
+    id: { videoId },
+    snippet,
+  },
+}) => {
+  const videoSrc = `https://www.youtube.com/embed/${videoId}`;
   return ReactDOM.createPortal(
-    <div className="ui dimmer modals visible active">
-      <div className="ui standard modal visible active">
-        <div className="hedaer">Delete Stream</div>
-        <div className="content">
-          Are you sure you want to delete this stream?
+    <div onClick={onPortalDismiss} className="ui dimmer modals visible active">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="ui standard modal visible active "
+      >
+        <div className="ui embed">
+          <iframe src={videoSrc} />
         </div>
-        <div className="actions">
-          <button className="ui primary button">Delete </button>
-          <button className="ui button">Cancel </button>
+        <h4 id="modal__h4" className="ui header">
+          {snippet.title}
+        </h4>
+        <p id="modal__p">{snippet.description}</p>
+        <div id="modal__action" className="actions">
+          <button className="ui primary button">View Detail</button>
+          <button onClick={onPortalDismiss} className="ui button">
+            Close
+          </button>
         </div>
       </div>
     </div>,
