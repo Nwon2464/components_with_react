@@ -4,7 +4,20 @@ step 2 - create all dropdown elements
        - need a title of dropdown as a default and all dropdown menu should be shown including default one too
 step 3 - to remove duplicate menu components, conditionally render the selected menu like if (option.menu === selected.menu) return null;
 step 4 - add onClick event listener when iterating using map to invoke function with current option 
+         
 step 5 - toggle between styles.
-step 5 - useRef for the div that covers all dropdown elements , useState to toggle dropdown menus , useEffect to add event listener to body  
+step 5 - useRef for the div that covers all dropdown elements , useState to toggle dropdown menus , useEffect for when  the element is rendered onto the screen first time, we add event listener to listen to that body element  
 step 6 - if user clicks on any element besides the ones created by the Dropdown (outside dropdown) = > stop body event listener from closing dropdown
        - if user clicks on an element that is created by the dropdown component (inside dropdown) = > stop body event listener from doing anything
+
+
+------- dropdown outside elements = > uncontrollable
+html
+ body
+  div#root
+   ------- dropdown inside elements = > controllable
+   Dropdown 
+    div.ui.form
+     div.ui.label and other div
+
+       

@@ -10,12 +10,18 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
     //user clicks on an element that is created by the dropdown componet (inside dropdown)
     // if a user clicks on one of these elements, then we dont want the body event listener to do anything
 
-    document.body.addEventListener("click", (e) => {
+    const bodyEventListener = (e) => {
       if (openRef.current.contains(e.target)) {
         return;
       }
       setOpen(false);
-    });
+     };
+    
+    document.body.addEventListener("click", bodyEventListener);
+    
+    return () => {
+      document.body.removeEventListener("click", bodyEventListener);
+    };
   }, []);
   const renderOptions = options.map((option) => {
     if (option.value === selected.value) {
@@ -54,9 +60,3 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
 };
 
 export default Dropdown;
-
-
-
-
-
-

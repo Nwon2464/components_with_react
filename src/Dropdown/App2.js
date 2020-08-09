@@ -3,14 +3,18 @@ import Dropdown from "./Dropdown";
 
 const App2 = () => {
   const [selected, setSelected] = useState(options[0]);
+  const [toggle, setToggle] = useState(true);
   console.log(selected);
   return (
     <div>
-      <Dropdown
-        selected={selected}
-        onSelectedChange={setSelected}
-        options={options}
-      />
+      <button onClick={() => setToggle(!toggle)}>Toggle Dropdown</button>
+      {toggle ? (
+        <Dropdown
+          selected={selected}
+          onSelectedChange={setSelected}
+          options={options}
+        />
+      ) : null}
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.body__right {
+  flex: 0.8;
+  background-color: #f9f9f9;
+  padding: 25px 20px;
+  padding-bottom: 0;
+}
+
+.body__right > h2 {
+  margin-left: 5px;
+  margin-bottom: 20px;
+}
