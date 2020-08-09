@@ -9,19 +9,6 @@ const SearchBar = (props) => {
     setTerm(event.target.value);
   };
 
-  //   const onSubmitForm = async (event) => {
-  //     event.preventDefault();
-  //     const response = await youtube.get("/search", {
-  //       params: {
-  //         part: "snippet",
-  //         type: "video",
-  //         maxResults: 5,
-  //         key: KEY,
-  //         q: term,
-  //       },
-  //     });
-  //     setVideos(response.data.items);
-  //   };
   const onFormSubmit = (event) => {
     event.preventDefault();
     props.onSubmitForm(term);

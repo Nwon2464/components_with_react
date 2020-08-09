@@ -1,7 +1,8 @@
 import "./Modal.css";
 import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
-
+import { Link } from "react-router-dom";
+import history from "./history";
 const Modal = ({
   onPortalDismiss,
 
@@ -25,10 +26,16 @@ const Modal = ({
         </h4>
         <p id="modal__p">{snippet.description}</p>
         <div id="modal__action" className="actions">
-          <button className="ui primary button">View Detail</button>
-          <button onClick={onPortalDismiss} className="ui button">
+          <Link
+            onClick={onPortalDismiss}
+            to={`view/${videoId}`}
+            className="ui primary button"
+          >
+            View Detail
+          </Link>
+          <Link onClick={onPortalDismiss} className="ui button">
             Close
-          </button>
+          </Link>
         </div>
       </div>
     </div>,

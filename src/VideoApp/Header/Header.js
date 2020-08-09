@@ -9,10 +9,10 @@ import AppsIcon from "@material-ui/icons/Apps";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import FaceIcon from "@material-ui/icons/Face";
 import SearchIcon from "@material-ui/icons/Search";
-
+import { Link } from "react-router-dom";
 const Header = (props) => {
- console.log(props)
-    return (
+  console.log(props);
+  return (
     <div className="header">
       <div className="header__left">
         <MenuIcon />
@@ -23,7 +23,7 @@ const Header = (props) => {
         />
       </div>
       <div className="header__input">
-        <SearchBar onSubmitForm={props.onSubmitForm}/>
+        <SearchBar onSubmitForm={props.onSubmitForm} />
         {/* icon need to be replaced */}
         <SearchIcon className="header__inputButton" />
       </div>

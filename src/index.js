@@ -12,15 +12,12 @@ import App3 from "./Search/App3";
 
 //VideoApp
 import App4 from "./VideoApp/App4";
-import { BrowserRouter, Route } from "react-router-dom";
 
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(
-  <BrowserRouter>
-    <div>
-      <Route component={App4} />
-    </div>
-  </BrowserRouter>,
+  <div>
+    <App4 />
+  </div>,
   rootElement
 );
