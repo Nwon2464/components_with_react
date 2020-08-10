@@ -35,7 +35,7 @@ const Modal = (props) => {
           >
             View Detail
           </Link>
-          <Link onClick={onPortalDismiss} className="ui button">
+          <Link to="/" onClick={onPortalDismiss} className="ui button">
             Close
           </Link>
         </div>

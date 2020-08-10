@@ -12,12 +12,17 @@ import App3 from "./Search/App3";
 
 //VideoApp
 import App4 from "./VideoApp/App4";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import reducers from "./VideoApp/reducers";
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+const store = createStore(reducers, composeEnhancers(applyMiddleware()));
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(
-  <div>
+  <Provider store={store}>
     <App4 />
-  </div>,
+  </Provider>,
   rootElement
 );

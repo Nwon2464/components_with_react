@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Header.css";
-
+import { connect } from "react-redux";
 import SearchBar from "./SearchBar/SearchBar";
 
 import VideoCallIcon from "@material-ui/icons/VideoCall";
@@ -35,6 +35,26 @@ const Header = (props) => {
       window.removeEventListener("click", pageClickEvent);
     };
   }, [isActive]);
+
+  const renderButton = () => {
+    if (props.isSignedIn === null) {
+      return (
+        <div
+          style={{ marginLeft: "10px" }}
+          className="ui active inline loader"
+        ></div>
+      );
+    } else if (props.isSignedIn) {
+      return (
+        <img
+          style={{ marginLeft: "10px", width: "25px", borderRadius: "25px" }}
+          src={props.userImage}
+        />
+      );
+    } else {
+      return <FaceIcon className="header__icon" />;
+    }
+  };
   console.log(props);
   return (
     <div className="header">
@@ -67,19 +87,25 @@ const Header = (props) => {
         </button>
 
         <button onClick={onFaceIconClick}>
-          <FaceIcon className="header__icon" />
+          {renderButton()}
+          {/* <FaceIcon className="header__icon" /> */}
         </button>
         <div
           ref={dropdownRef}
           className={`menu ${isActive ? "active" : "inactive"}`}
         >
-          <div className="links">
-            <GoogleAuth />
-          </div>
+          <GoogleAuth />
         </div>
       </div>
     </div>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    isSignedIn: state.auth.isSignedIn,
+    userId: state.auth.userId,
+    userImage: state.auth.userImage,
+  };
+};
+export default connect(mapStateToProps)(Header);

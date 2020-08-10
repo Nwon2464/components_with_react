@@ -37,14 +37,7 @@
 }
 
 .menu {
-  position: relative;
   visibility: hidden;
-}
-.menu .links {
-  position: absolute;
- width:10vw;
- margin : 20px 0;
-  right: 0;
 }
 .menu.active {
   visibility: visible;

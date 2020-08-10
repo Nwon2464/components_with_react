@@ -74,22 +74,11 @@ const App4 = (props) => {
           render={(props) => <Header {...props} videos={videos} />}
         /> */}
         {showModal ? (
-          <Route
-            // path="/modals"
-            render={(props) => (
-              <Modal
-                {...props}
-                onPortalDismiss={onPortalDismiss}
-                selectedVideo={selectedVideo}
-              />
-            )}
-          />
-        ) : null}
-
-        {/* <Modal
+          <Modal
             onPortalDismiss={onPortalDismiss}
             selectedVideo={selectedVideo}
-          /> */}
+          />
+        ) : null}
 
         <Switch>
           <Route exact path="/view/:id">
