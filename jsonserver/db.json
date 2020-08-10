@@ -1,3 +1,181 @@
 {
-    "streams":[]
+  "videos": [
+    {
+      "albumId": 1,
+      "id": {
+        "videoId": "CLSDdkfjL"
+      },
+
+      "snippet": {
+        "description": "lorem alkjsdkilwidkfjlsivklsdf",
+        "publishTime": "2days ago",
+        "channelTitle": "Leanne Graham",
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "thumbnails": {
+          "medium": { "url": "https://via.placeholder.com/600/92c952" }
+        }
+      }
+    },
+    {
+      "albumId": 2,
+      "id": {
+        "videoId": "BBBdkfjL"
+      },
+
+      "snippet": {
+        "description": "lorem alkjsdkilwidkfjlsivklsdf",
+        "publishTime": "12days ago",
+        "channelTitle": "Ervin Howell",
+        "title": "reprehenderit est deserunt velit ipsam",
+        "thumbnails": {
+          "medium": { "url": "https://via.placeholder.com/600/771796" }
+        }
+      }
+    },
+
+    {
+      "albumId": 3,
+      "id": {
+        "videoId": "BVfaxCdkfjL"
+      },
+
+      "snippet": {
+        "description": "lorem alkjsdkilwidkfjlsivklsdf",
+        "publishTime": "122days ago",
+        "channelTitle": "Clementine Bauch",
+        "title": "officia porro iure quia iusto qui ipsa ut modi",
+        "thumbnails": {
+          "medium": {
+            "url": "https://via.placeholder.com/600/24f355"
+          }
+        }
+      }
+    },
+    {
+      "albumId": 4,
+      "id": {
+        "videoId": "BVCCsxCdkfjL"
+      },
+
+      "snippet": {
+        "description": "lorem alkjsdkilwidkfjlsivklsdf",
+        "publishTime": "1223days ago",
+        "channelTitle": "Clementine Bauch",
+        "title": "officia porro iure quia iusto qui ipsa ut modi",
+        "thumbnails": {
+          "medium": {
+            "url": "https://via.placeholder.com/600/24f355"
+          }
+        }
+      }
+    },
+    {
+      "albumId": 5,
+      "id": {
+        "videoId": "axVdfjL"
+      },
+
+      "snippet": {
+        "description": "lorem alkjsdkilwidkfjlsivklsdf",
+        "publishTime": "122days ago",
+        "channelTitle": "Clementine Bauch",
+        "title": "officia porro iure quia iusto qui ipsa ut modi",
+        "thumbnails": {
+          "medium": {
+            "url": "https://via.placeholder.com/600/24f355"
+          }
+        }
+      }
+    },
+    {
+      "albumId": 6,
+      "id": {
+        "videoId": "LnaxfjL"
+      },
+
+      "snippet": {
+        "description": "lorem alkjsdkilwidkfjlsivklsdf",
+        "publishTime": "122days ago",
+        "channelTitle": "Clementine Bauch",
+        "title": "officia porro iure quia iusto qui ipsa ut modi",
+        "thumbnails": {
+          "medium": {
+            "url": "https://via.placeholder.com/600/24f355"
+          }
+        }
+      }
+    },
+    {
+      "albumId": 7,
+      "id": {
+        "videoId": "cDfHkfjL"
+      },
+
+      "snippet": {
+        "description": "lorem alkjsdkilwidkfjlsivklsdf",
+        "publishTime": "122days ago",
+        "channelTitle": "Clementine Bauch",
+        "title": "officia porro iure quia iusto qui ipsa ut modi",
+        "thumbnails": {
+          "medium": {
+            "url": "https://via.placeholder.com/600/24f355"
+          }
+        }
+      }
+    },
+    {
+      "albumId": 8,
+      "id": {
+        "videoId": "KfkmvljL"
+      },
+
+      "snippet": {
+        "description": "lorem alkjsdkilwidkfjlsivklsdf",
+        "publishTime": "122days ago",
+        "channelTitle": "Clementine Bauch",
+        "title": "officia porro iure quia iusto qui ipsa ut modi",
+        "thumbnails": {
+          "medium": {
+            "url": "https://via.placeholder.com/600/24f355"
+          }
+        }
+      }
+    },
+    {
+      "albumId": 9,
+      "id": {
+        "videoId": "BLzkdWpq"
+      },
+
+      "snippet": {
+        "description": "lorem alkjsdkilwidkfjlsivklsdf",
+        "publishTime": "122days ago",
+        "channelTitle": "Clementine Bauch",
+        "title": "officia porro iure quia iusto qui ipsa ut modi",
+        "thumbnails": {
+          "medium": {
+            "url": "https://via.placeholder.com/600/24f355"
+          }
+        }
+      }
+    },
+    {
+      "albumId": 10,
+      "id": {
+        "videoId": "axCdkfjL"
+      },
+
+      "snippet": {
+        "description": "lorem alkjsdkilwidkfjlsivklsdf",
+        "publishTime": "122days ago",
+        "channelTitle": "Clementine Bauch",
+        "title": "officia porro iure quia iusto qui ipsa ut modi",
+        "thumbnails": {
+          "medium": {
+            "url": "https://via.placeholder.com/600/24f355"
+          }
+        }
+      }
+    }
+  ]
 }

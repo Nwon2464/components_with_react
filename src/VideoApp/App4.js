@@ -10,30 +10,51 @@ import Modal from "./Modal";
 import youtube from "./apis/youtube";
 import history from "./history";
 
+import StreamsCreate from "./components/Streams/StreamsCreate";
+import StreamsDelete from "./components/Streams/StreamsDelete";
+import StreamsEdit from "./components/Streams/StreamsEdit";
+import StreamsShow from "./components/Streams/StreamsShow";
+import GoogleAuth from "./GoogleAuth";
+
 import Search from "./components/Search/Search";
 import ViewLeft from "./components/View/ViewLeft";
 import ViewRight from "./components/View/ViewRight";
 import Login from "./components/Login/Login";
 
 const KEY = "AIzaSyAR4iYaiGT4oNWSkga37lDBzxqJLp0Rg70";
-
+const clientId =
+  "979708510452-oa44268dodlk7at65bponsb27c0utgn2.apps.googleusercontent.com";
 const App4 = (props) => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-  const onSubmitForm = async (term) => {
-    const response = await youtube.get("/search", {
-      params: {
-        part: "snippet",
-        type: "video",
-        maxResults: 20,
-        key: KEY,
-        q: term,
-      },
-    });
-    setVideos(response.data.items);
-  };
+  //Youtube API
+  // const onSubmitForm = async (term) => {
+  //   const response = await youtube.get("/search", {
+  //     params: {
+  //       part: "snippet",
+  //       type: "video",
+  //       maxResults: 20,
+  //       key: KEY,
+  //       q: term,
+  //     },
+  //   });
+  //   setVideos(response.data.items);
+  // };
+  // useEffect(() => {
+  //   onSubmitForm("sky");
+  // }, []);
+
+  //Json API
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get("http://localhost:3001/videos");
+      setVideos(response.data);
+    };
+    fetchData();
+  }, []);
+
   const onVideoSelect = (video) => {
     setShowModal(true);
     setSelectedVideo(video);
@@ -43,20 +64,32 @@ const App4 = (props) => {
     setShowModal(false);
     history.push("/");
   };
-  useEffect(() => {
-    onSubmitForm("sky");
-  }, []);
-
   return (
     <div>
       <Router history={history}>
-        <Header onSubmitForm={onSubmitForm} />
+        {/* <Header onSubmitForm={onSubmitForm} /> */}
+        <Header />
+        {/* <Route
+          path="/"
+          render={(props) => <Header {...props} videos={videos} />}
+        /> */}
         {showModal ? (
-          <Modal
-            onPortalDismiss={onPortalDismiss}
-            selectedVideo={selectedVideo}
+          <Route
+            // path="/modals"
+            render={(props) => (
+              <Modal
+                {...props}
+                onPortalDismiss={onPortalDismiss}
+                selectedVideo={selectedVideo}
+              />
+            )}
           />
         ) : null}
+
+        {/* <Modal
+            onPortalDismiss={onPortalDismiss}
+            selectedVideo={selectedVideo}
+          /> */}
 
         <Switch>
           <Route exact path="/view/:id">
@@ -73,10 +106,15 @@ const App4 = (props) => {
             </div>
           </Route>
           <Route exact path="/login" component={Login} />
+          <Route exact path="/streams/new" component={StreamsCreate} />
+          <Route exact path="/streams/edit" component={StreamsEdit} />
+          <Route exact path="/streams/delete" component={StreamsDelete} />
+          <Route exact path="/streams/show" component={StreamsShow} />
 
           <Route exact path="/">
             <div className="app__body">
               <BodyLeft />
+
               <BodyRight onVideoSelect={onVideoSelect} videos={videos} />
             </div>
           </Route>

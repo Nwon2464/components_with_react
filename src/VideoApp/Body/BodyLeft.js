@@ -5,11 +5,11 @@ import "./BodyLeft.css";
 const BodyLeft = () => {
   const renderIcons = icons.map(({ Icon, Title, id }) => {
     return (
-      <>
-        <BodyLeftRow key={id} Icon={Icon} title={Title} />
+      <React.Fragment key={id}>
+        <BodyLeftRow Icon={Icon} title={Title} />
         {id === 2 && <hr />}
         {id === 8 && <hr />}
-      </>
+      </React.Fragment>
     );
   });
 

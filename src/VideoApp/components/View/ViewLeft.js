@@ -11,13 +11,12 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import CommentList from "./CommentList/CommentList";
 
-const ViewLeft = ({ selectedVideo }) => {
-  console.log(selectedVideo);
+const ViewLeft = (props) => {
+  console.log(props);
   const {
     id: { videoId },
     snippet,
-  } = selectedVideo;
-
+  } = props.selectedVideo;
   // useEffect(() => {
   //   if (!selectedVideo.id) {
   //     history.push("/");
