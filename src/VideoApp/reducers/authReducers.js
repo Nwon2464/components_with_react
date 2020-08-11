@@ -1,5 +1,4 @@
-const SIGN_IN = "SIGN_IN";
-const SIGN_OUT = "SIGN_OUT";
+import { SIGN_IN, SIGN_OUT } from "../actions/types";
 
 const INITIAL_STATE = {
   isSignedIn: null,

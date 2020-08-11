@@ -88,7 +88,6 @@ const Header = (props) => {
 
         <button onClick={onFaceIconClick}>
           {renderButton()}
-          {/* <FaceIcon className="header__icon" /> */}
         </button>
         <div
           ref={dropdownRef}

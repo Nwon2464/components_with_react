@@ -1,18 +1,26 @@
 {
+  "streams": [
+    {
+      "title": "first title",
+      "description": "first description",
+      "id": 1
+    }
+  ],
   "videos": [
     {
       "albumId": 1,
       "id": {
         "videoId": "CLSDdkfjL"
       },
-
       "snippet": {
         "description": "lorem alkjsdkilwidkfjlsivklsdf",
         "publishTime": "2days ago",
         "channelTitle": "Leanne Graham",
         "title": "accusamus beatae ad facilis cum similique qui sunt",
         "thumbnails": {
-          "medium": { "url": "https://via.placeholder.com/600/92c952" }
+          "medium": {
+            "url": "https://via.placeholder.com/600/92c952"
+          }
         }
       }
     },
@@ -21,24 +29,23 @@
       "id": {
         "videoId": "BBBdkfjL"
       },
-
       "snippet": {
         "description": "lorem alkjsdkilwidkfjlsivklsdf",
         "publishTime": "12days ago",
         "channelTitle": "Ervin Howell",
         "title": "reprehenderit est deserunt velit ipsam",
         "thumbnails": {
-          "medium": { "url": "https://via.placeholder.com/600/771796" }
+          "medium": {
+            "url": "https://via.placeholder.com/600/771796"
+          }
         }
       }
     },
-
     {
       "albumId": 3,
       "id": {
         "videoId": "BVfaxCdkfjL"
       },
-
       "snippet": {
         "description": "lorem alkjsdkilwidkfjlsivklsdf",
         "publishTime": "122days ago",
@@ -56,7 +63,6 @@
       "id": {
         "videoId": "BVCCsxCdkfjL"
       },
-
       "snippet": {
         "description": "lorem alkjsdkilwidkfjlsivklsdf",
         "publishTime": "1223days ago",
@@ -74,7 +80,6 @@
       "id": {
         "videoId": "axVdfjL"
       },
-
       "snippet": {
         "description": "lorem alkjsdkilwidkfjlsivklsdf",
         "publishTime": "122days ago",
@@ -92,7 +97,6 @@
       "id": {
         "videoId": "LnaxfjL"
       },
-
       "snippet": {
         "description": "lorem alkjsdkilwidkfjlsivklsdf",
         "publishTime": "122days ago",
@@ -110,7 +114,6 @@
       "id": {
         "videoId": "cDfHkfjL"
       },
-
       "snippet": {
         "description": "lorem alkjsdkilwidkfjlsivklsdf",
         "publishTime": "122days ago",
@@ -128,7 +131,6 @@
       "id": {
         "videoId": "KfkmvljL"
       },
-
       "snippet": {
         "description": "lorem alkjsdkilwidkfjlsivklsdf",
         "publishTime": "122days ago",
@@ -146,7 +148,6 @@
       "id": {
         "videoId": "BLzkdWpq"
       },
-
       "snippet": {
         "description": "lorem alkjsdkilwidkfjlsivklsdf",
         "publishTime": "122days ago",
@@ -164,7 +165,6 @@
       "id": {
         "videoId": "axCdkfjL"
       },
-
       "snippet": {
         "description": "lorem alkjsdkilwidkfjlsivklsdf",
         "publishTime": "122days ago",

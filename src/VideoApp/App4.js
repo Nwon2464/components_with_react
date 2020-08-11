@@ -19,7 +19,7 @@ import GoogleAuth from "./GoogleAuth";
 import Search from "./components/Search/Search";
 import ViewLeft from "./components/View/ViewLeft";
 import ViewRight from "./components/View/ViewRight";
-import Login from "./components/Login/Login";
+import SignUp from "./components/Login/SignUp";
 
 const KEY = "AIzaSyAR4iYaiGT4oNWSkga37lDBzxqJLp0Rg70";
 const clientId =
@@ -94,7 +94,7 @@ const App4 = (props) => {
               <Search />
             </div>
           </Route>
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
           <Route exact path="/streams/new" component={StreamsCreate} />
           <Route exact path="/streams/edit" component={StreamsEdit} />
           <Route exact path="/streams/delete" component={StreamsDelete} />
