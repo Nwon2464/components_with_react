@@ -1,7 +1,12 @@
 import React from "react";
 
-export default ({ input, label, meta: { touched, error } }) => {
-  console.log(touched);
+export default (props) => {
+  const {
+    input,
+    label,
+    meta: { touched, error },
+  } = props;
+  console.log(input);
   return (
     <div className="field">
       <label>{label}</label>

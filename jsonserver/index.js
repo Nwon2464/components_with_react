@@ -19,8 +19,6 @@ for (let i = 0; i < 10; i++) {
         },
       },
     },
-    name: faker.name.findName(),
-    email: faker.internet.email(),
     userId: faker.random.uuid(),
   });
 }

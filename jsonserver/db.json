@@ -208,26 +208,41 @@
       "id": 1
     },
     {
-      "title": "a",
-      "description": "a",
+      "Stream_Title": "Title",
+      "Stream_Description": "Description",
+      "Channel_Title": "Title",
+      "Notes": "Notes",
+      "snippet": {
+        "description": "Description",
+        "title": "Title",
+        "thumbnails": {
+          "medium": {
+            "url": "http://lorempixel.com/640/480/cats"
+          }
+        },
+        "publishTime": "08-13-2020"
+      },
       "userId": "106253016033244803359",
-      "id": 2
+      "id": 29
     },
     {
-      "title": "Hello",
-      "description": "World",
-      "channel title": "channel?",
-      "Notes": "Notes?",
+      "Stream_Title": "t1",
+      "Stream_Description": "d1",
+      "Channel_Title": "t1",
+      "Notes": "n1",
+      "snippet": {
+        "description": "d1",
+        "title": "t1",
+        "channelTitle": "t1",
+        "publishTime": "08-13-2020",
+        "thumbnails": {
+          "medium": {
+            "url": "http://lorempixel.com/640/480/nature"
+          }
+        }
+      },
       "userId": "106253016033244803359",
-      "id": 3
-    },
-    {
-      "title": "programminc",
-      "description": "navi",
-      "channel title": "navi",
-      "Notes": "nva",
-      "userId": "106253016033244803359",
-      "id": 4
+      "id": 30
     }
   ]
 }

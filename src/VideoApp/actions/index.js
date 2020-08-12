@@ -1,3 +1,7 @@
+import faker from "faker";
+import _ from "lodash";
+// import moment from "react-moment";
+import moment from "moment";
 import axios from "axios";
 import history from "../history";
 import {
@@ -31,12 +35,35 @@ export const fetchVideos = () => async (dispatch) => {
 };
 // -------------------------------
 
+// name: "snippet.title",
+//   },
+//   {
+//     label: "Stream Description",
+//     name: "snippet.description",
+//   },
+//   {
+//     label: "Channel Title",
+//     name: "snippet.channelTitle
+
 export const createStream = (formValues) => async (dispatch, getState) => {
+  console.log("FIRST CALL", formValues);
+  _.set(formValues, "snippet.description", formValues.Stream_Description);
+  _.set(formValues, "snippet.title", formValues.Stream_Title);
+  _.set(formValues, "snippet.channelTitle", formValues.Channel_Title);
+
+  _.set(
+    formValues,
+    "snippet.publishTime",
+    moment(new Date()).format("MM-DD-YYYY")
+  );
+  _.set(formValues, "snippet.thumbnails.medium.url", faker.random.image());
+
   const { userId } = getState().auth;
   const response = await axios.post(`${BASE_URL}/streams`, {
     ...formValues,
     userId,
   });
+
   dispatch({
     type: CREATE_STREAM,
     payload: response.data,

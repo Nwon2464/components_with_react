@@ -15,6 +15,10 @@ const VideoItem = (props) => {
       );
     }
   };
+
+  const renderList = ()=>{
+    
+  }
   return (
     <div onClick={() => onVideoSelect(video)} className="video__card">
       <img

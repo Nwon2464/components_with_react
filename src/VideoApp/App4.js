@@ -3,7 +3,7 @@ import "./App4.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { fetchVideos } from "./actions";
+import { fetchVideos, fetchStreams } from "./actions";
 import { Router, Route, Switch } from "react-router-dom";
 import Header from "./Header/Header";
 import BodyRight from "./Body/BodyRight";
@@ -69,8 +69,9 @@ const App4 = (props) => {
   //fetching videos from redux
   useEffect(() => {
     props.fetchVideos();
+    props.fetchStreams();
   }, []);
-
+  console.log(props);
   return (
     <div>
       <Router history={history}>
@@ -123,7 +124,8 @@ const App4 = (props) => {
 const mapStateToProps = (state) => {
   return {
     videos: Object.values(state.videos),
+    streams: Object.values(state.streams),
   };
 };
 
-export default connect(mapStateToProps, { fetchVideos })(App4);
+export default connect(mapStateToProps, { fetchVideos, fetchStreams })(App4);
