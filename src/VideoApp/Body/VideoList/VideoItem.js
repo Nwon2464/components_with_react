@@ -1,9 +1,20 @@
 import React from "react";
 import "./VideoItem.css";
-
-const VideoItem = ({ video, onVideoSelect }) => {
+import { connect } from "react-redux";
+const VideoItem = (props) => {
   let imageAvatar = images[Math.floor(Math.random() * images.length)];
-
+  const { video, onVideoSelect } = props;
+  // console.log(video);
+  const renderAdmin = () => {
+    if (video.userId === props.currentUserId) {
+      return (
+        <div className="user__admin">
+          <button className="ui primary button">Edit</button>
+          <button className="ui red button">Delete</button>
+        </div>
+      );
+    }
+  };
   return (
     <div onClick={() => onVideoSelect(video)} className="video__card">
       <img
@@ -20,13 +31,18 @@ const VideoItem = ({ video, onVideoSelect }) => {
           <h4 className="video__card__h4">{video.snippet.title}</h4>
           <p>{video.snippet.channelTitle}</p>
           <p>{video.snippet.publishTime}</p>
+          {renderAdmin()}
         </div>
       </div>
     </div>
   );
 };
-
-export default VideoItem;
+const mapStateToProps = (state) => {
+  return {
+    currentUserId: state.auth.userId,
+  };
+};
+export default connect(mapStateToProps)(VideoItem);
 
 const images = [
   "https://semantic-ui.com/images/avatar/small/jenny.jpg",

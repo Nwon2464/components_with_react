@@ -76,19 +76,17 @@ const Header = (props) => {
         <SearchIcon className="header__inputButton" />
       </div>
       <div className="header__icons">
-        <button>
+        <Link to="/streams/new">
           <VideoCallIcon className="header__icon" />
-        </button>
-        <button>
+        </Link>
+        <Link>
           <AppsIcon className="header__icon" />
-        </button>
-        <button>
+        </Link>
+        <Link>
           <NotificationsIcon className="header__icon" />
-        </button>
+        </Link>
 
-        <button onClick={onFaceIconClick}>
-          {renderButton()}
-        </button>
+        <button onClick={onFaceIconClick}>{renderButton()}</button>
         <div
           ref={dropdownRef}
           className={`menu ${isActive ? "active" : "inactive"}`}

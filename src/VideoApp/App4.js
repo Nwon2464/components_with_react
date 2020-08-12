@@ -2,6 +2,8 @@ import "./App4.css";
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+import { fetchVideos } from "./actions";
 import { Router, Route, Switch } from "react-router-dom";
 import Header from "./Header/Header";
 import BodyRight from "./Body/BodyRight";
@@ -47,13 +49,13 @@ const App4 = (props) => {
   // }, []);
 
   //Json API
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get("http://localhost:3001/videos");
-      setVideos(response.data);
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await axios.get("http://localhost:3001/videos");
+  //     setVideos(response.data);
+  //   };
+  //   fetchData();
+  // }, []);
 
   const onVideoSelect = (video) => {
     setShowModal(true);
@@ -64,15 +66,17 @@ const App4 = (props) => {
     setShowModal(false);
     history.push("/");
   };
+  //fetching videos from redux
+  useEffect(() => {
+    props.fetchVideos();
+  }, []);
+
   return (
     <div>
       <Router history={history}>
         {/* <Header onSubmitForm={onSubmitForm} /> */}
         <Header />
-        {/* <Route
-          path="/"
-          render={(props) => <Header {...props} videos={videos} />}
-        /> */}
+        {/* <Route path="/" render={(props) => <Header {...props} />} /> */}
         {showModal ? (
           <Modal
             onPortalDismiss={onPortalDismiss}
@@ -84,7 +88,7 @@ const App4 = (props) => {
           <Route exact path="/view/:id">
             <div className="view">
               <ViewLeft selectedVideo={selectedVideo} />
-              <ViewRight videos={videos} />
+              <ViewRight videos={props.videos} />
             </div>
           </Route>
 
@@ -95,16 +99,19 @@ const App4 = (props) => {
             </div>
           </Route>
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/streams/new" component={StreamsCreate} />
           <Route exact path="/streams/edit" component={StreamsEdit} />
           <Route exact path="/streams/delete" component={StreamsDelete} />
           <Route exact path="/streams/show" component={StreamsShow} />
 
+          <Route exact path="/streams/new">
+            <div className="app__body">
+              <StreamsCreate />
+            </div>
+          </Route>
           <Route exact path="/">
             <div className="app__body">
               <BodyLeft />
-
-              <BodyRight onVideoSelect={onVideoSelect} videos={videos} />
+              <BodyRight onVideoSelect={onVideoSelect} videos={props.videos} />
             </div>
           </Route>
         </Switch>
@@ -113,4 +120,10 @@ const App4 = (props) => {
   );
 };
 
-export default App4;
+const mapStateToProps = (state) => {
+  return {
+    videos: Object.values(state.videos),
+  };
+};
+
+export default connect(mapStateToProps, { fetchVideos })(App4);

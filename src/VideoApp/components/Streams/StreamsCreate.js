@@ -24,9 +24,9 @@ const StreamsCreate = (props) => {
   };
 
   return (
-    <form onSubmit={props.handleSubmit(onSubmit)}>
+    <form className="ui form" onSubmit={props.handleSubmit(onSubmit)}>
       {renderFields()}
-      <button>Submit</button>
+      <button className="ui primary button">Submit</button>
     </form>
   );
 };

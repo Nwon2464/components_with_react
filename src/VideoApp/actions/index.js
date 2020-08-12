@@ -1,4 +1,5 @@
 import axios from "axios";
+import history from "../history";
 import {
   SIGN_IN,
   CREATE_STREAM,
@@ -7,6 +8,7 @@ import {
   DELETE_STREAM,
   EDIT_STREAM,
   SIGN_OUT,
+  FETCH_VIDEOS,
 } from "./types";
 const BASE_URL = "http://localhost:3001";
 
@@ -22,12 +24,24 @@ export const signOut = () => {
   };
 };
 
-export const createStream = (formValues) => async (dispatch) => {
-  const response = await axios.post(`${BASE_URL}/streams`, formValues);
+// -------------------------------youtube
+export const fetchVideos = () => async (dispatch) => {
+  const response = await axios.get(`${BASE_URL}/videos`);
+  dispatch({ type: FETCH_VIDEOS, payload: response.data });
+};
+// -------------------------------
+
+export const createStream = (formValues) => async (dispatch, getState) => {
+  const { userId } = getState().auth;
+  const response = await axios.post(`${BASE_URL}/streams`, {
+    ...formValues,
+    userId,
+  });
   dispatch({
     type: CREATE_STREAM,
     payload: response.data,
   });
+  history.push("/");
 };
 
 export const fetchStreams = () => async (dispatch) => {

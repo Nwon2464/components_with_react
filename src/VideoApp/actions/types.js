@@ -7,6 +7,7 @@ export const FETCH_STREAM = "FETCH_STREAM";
 export const DELETE_STREAM = "DELETE_STREAM";
 export const EDIT_STREAM = "EDIT_STREAM";
 
+export const FETCH_VIDEOS = "FETCH_VIDEOS";
 
 //right after const ctrl + D * 4
 //right shift twice

@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchStreams } from "../../actions";
+const StreamsDelete = (props) => {
+  useEffect(() => {
+    props.fetchStreams();
+  }, []);
 
-const StreamsDelete = () => {
-    return (
-        <div>
-            StreamsDelete
-        </div>
-    )
-}
+  return <div>StreamsDelete</div>;
+};
 
-export default StreamsDelete
+export default connect(null, { fetchStreams })(StreamsDelete);

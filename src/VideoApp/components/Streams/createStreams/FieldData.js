@@ -7,4 +7,12 @@ export default [
     label: "description",
     name: "description",
   },
+  {
+    label: "channel title",
+    name: "channel title",
+  },
+  {
+    label: "Notes",
+    name: "Notes",
+  },
 ];

@@ -30,3 +30,13 @@
   height: 30px !important;
   width: 30px !important;
 }
+
+.user__admin {
+  position: absolute;
+  left: 160px;
+  top: 295px;
+}
+
+.user__admin > button {
+  padding: 8px !important;
+}
