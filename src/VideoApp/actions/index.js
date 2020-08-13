@@ -40,12 +40,8 @@ export const createStream = (formValues) => async (dispatch, getState) => {
   _.set(formValues, "description", formValues.Stream_Description);
   _.set(formValues, "title", formValues.Stream_Title);
   _.set(formValues, "channelTitle", formValues.Channel_Title);
-
-  _.set(
-    formValues,
-    "publishTime",
-    moment(new Date()).format("MM-DD-YYYY")
-  );
+  _.set(formValues, "notes", formValues.Notes);
+  _.set(formValues, "publishTime", moment(new Date()).format("MM-DD-YYYY"));
   _.set(formValues, "imgUrl", faker.random.image());
 
   const { userId } = getState().auth;
@@ -72,8 +68,15 @@ export const fetchStream = (id) => async (dispatch) => {
 };
 
 export const editStream = (id, formValues) => async (dispatch) => {
-  const response = await axios.put(`${BASE_URL}/streams/${id}`, formValues);
+  _.set(formValues, "description", formValues.Stream_Description);
+  _.set(formValues, "title", formValues.Stream_Title);
+  _.set(formValues, "channelTitle", formValues.Channel_Title);
+  _.set(formValues, "Notes", formValues.Notes);
+  _.set(formValues, "publishTime", moment(new Date()).format("MM-DD-YYYY"));
+
+  const response = await axios.patch(`${BASE_URL}/streams/${id}`, formValues);
   dispatch({ type: EDIT_STREAM, payload: response.data });
+  history.push("/");
 };
 
 export const deleteStream = (id) => async (dispatch) => {

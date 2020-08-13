@@ -132,30 +132,6 @@
       "userId": "0789243529",
       "videoId": "39036",
       "imageAvatar": "https://semantic-ui.com/images/avatar/small/jenny.jpg"
-    },
-    {
-      "id": 12,
-      "description": "Tempora quaerat ratione doloribus nostrum illum nobis. Fuga et numquam dignissimos id vel. Totam necessitatibus dolorem at aperiam ipsa animi voluptate ratione. Et architecto qui occaecati saepe officiis iusto recusandae.",
-      "publishTime": "08-13-2020",
-      "channelTitle": "optio eos tempore",
-      "title": "Corporate Directives Analyst",
-      "imgUrl": "http://lorempixel.com/640/480/food",
-      "userId": "8691783789",
-      "videoId": "26195",
-      "imageAvatar": "https://semantic-ui.com/images/avatar/small/joe.jpg"
-    },
-    {
-      "Stream_Title": "123",
-      "Stream_Description": "123",
-      "Channel_Title": "123",
-      "Notes": "123",
-      "description": "123",
-      "title": "123",
-      "channelTitle": "123",
-      "publishTime": "08-13-2020",
-      "imgUrl": "http://lorempixel.com/640/480/nature",
-      "userId": "106253016033244803359",
-      "id": 13
     }
   ]
 }
