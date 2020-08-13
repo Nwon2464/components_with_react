@@ -27,7 +27,12 @@ const KEY = "AIzaSyAR4iYaiGT4oNWSkga37lDBzxqJLp0Rg70";
 const clientId =
   "979708510452-oa44268dodlk7at65bponsb27c0utgn2.apps.googleusercontent.com";
 const App4 = (props) => {
-  const [videos, setVideos] = useState([]);
+  //fetching videos from redux
+  useEffect(() => {
+    props.fetchStreams();
+  }, []);
+
+  // const [streams, setStreams] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -57,20 +62,15 @@ const App4 = (props) => {
   //   fetchData();
   // }, []);
 
-  const onVideoSelect = (video) => {
+  const onVideoSelect = (streams) => {
     setShowModal(true);
-    setSelectedVideo(video);
+    setSelectedVideo(streams);
   };
 
   const onPortalDismiss = () => {
     setShowModal(false);
     history.push("/");
   };
-  //fetching videos from redux
-  useEffect(() => {
-    props.fetchVideos();
-    props.fetchStreams();
-  }, []);
 
   return (
     <div>
@@ -89,7 +89,7 @@ const App4 = (props) => {
           <Route exact path="/view/:id">
             <div className="view">
               <ViewLeft selectedVideo={selectedVideo} />
-              <ViewRight videos={props.videos} />
+              <ViewRight streams={props.streams} />
             </div>
           </Route>
 
@@ -114,7 +114,6 @@ const App4 = (props) => {
               <BodyLeft />
               <BodyRight
                 onVideoSelect={onVideoSelect}
-                videos={props.videos}
                 streams={props.streams}
               />
             </div>
@@ -127,9 +126,8 @@ const App4 = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    videos: Object.values(state.videos),
     streams: Object.values(state.streams),
   };
 };
 
-export default connect(mapStateToProps, { fetchVideos, fetchStreams })(App4);
+export default connect(mapStateToProps, { fetchStreams })(App4);

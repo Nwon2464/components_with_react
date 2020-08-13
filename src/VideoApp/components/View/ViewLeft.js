@@ -13,15 +13,7 @@ import CommentList from "./CommentList/CommentList";
 
 const ViewLeft = (props) => {
   console.log(props);
-  const {
-    id: { videoId },
-    snippet,
-  } = props.selectedVideo;
-  // useEffect(() => {
-  //   if (!selectedVideo.id) {
-  //     history.push("/");
-  //   }
-  // }, []);
+  const { videoId, title } = props.selectedVideo;
 
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
   return (
@@ -40,7 +32,7 @@ const ViewLeft = (props) => {
           <span />
         </div>
         <h1 id="view__left__h1" className="ui header">
-          {snippet.title}
+          {title}
         </h1>
         <div className="view__left__info">
           <div className="view__left__view">

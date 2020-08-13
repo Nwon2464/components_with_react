@@ -1,82 +1,161 @@
 {
-  "videos": [
-    {
-      "albumId": 0,
-      "id": 0,
-      "snippet": {
-        "description": "Quisquam iusto maxime nemo fuga culpa temporibus enim velit praesentium. Quibusdam id dignissimos facere soluta consequuntur. In at autem quidem voluptas occaecati qui adipisci corrupti. Et debitis deserunt consequatur voluptate vitae nisi saepe. Aperiam dolorem eaque omnis. Cumque architecto possimus est aliquid.",
-        "publishTime": "08-12-2020",
-        "channelTitle": "ACE Academy",
-        "title": "Product Research Associate",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/nature"
-          }
-        }
-      },
-      "name": "Magdalena Vandervort",
-      "email": "Reilly66@gmail.com",
-      "userId": "106253016033244803359",
-      "videoId": "0fc97bd2-e119-4d56-94bc-554f81a75653"
-    },
-    {
-      "albumId": 1,
-      "id": 1,
-      "snippet": {
-        "description": "Nam eum officiis. Consequatur dolor enim tenetur nisi autem accusamus ipsam expedita vel. Et sed facilis autem magnam mollitia dicta soluta ut. Iusto dolores voluptatem perspiciatis voluptatem.",
-        "publishTime": "08-12-2020",
-        "channelTitle": "In quibusdam sit culpa.",
-        "title": "Principal Quality Strategist",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/nightlife"
-          }
-        }
-      },
-      "name": "Ms. Mike Homenick",
-      "email": "Camila_Hyatt@gmail.com",
-      "userId": "9ed67b12-212f-4609-ad0c-20d5c2b55b2e",
-      "videoId": "faefc819-d00b-4035-bf07-8b9a2e93f989"
-    }
-  ],
+  "videos": [],
   "streams": [
     {
-      "Stream_Title": "t1",
-      "Stream_Description": "d1",
-      "Channel_Title": "t1",
-      "Notes": "n1",
-      "snippet": {
-        "description": "You want to become an excellent Developer in the world? you got me!! I will help you skyrocket your career and your life!",
-        "title": "React Developers need to watch my STREAM!",
-        "channelTitle": "League Of Legends",
-        "publishTime": "08-13-2020",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/nature"
-          }
-        }
-      },
+      "id": 0,
+      "description": "Ab maxime natus sunt rerum placeat magni. Alias commodi consequatur. Earum qui ut eum. Molestias illum sapiente id fugiat est.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "beatae qui molestiae",
+      "title": "International Intranet Orchestrator",
+      "imgUrl": "http://lorempixel.com/640/480/cats",
       "userId": "106253016033244803359",
-      "id": 30
+      "videoId": "66929",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/elliot.jpg"
     },
     {
-      "Stream_Title": "Icreated This STream",
-      "Stream_Description": "ROCKET JUMPER",
-      "Channel_Title": "codeEvolution",
-      "Notes": "thankyou",
-      "snippet": {
-        "description": "ROCKET JUMPER",
-        "title": "Icreated This STream",
-        "channelTitle": "codeEvolution",
-        "publishTime": "08-13-2020",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/business"
-          }
-        }
-      },
+      "id": 1,
+      "description": "Tenetur rerum ut officia qui maxime ex voluptas ut labore. Rerum itaque qui beatae voluptatem aut ut. Enim quia molestiae delectus. Ducimus iste tempore ducimus esse.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "incidunt sit incidunt",
+      "title": "National Assurance Manager",
+      "imgUrl": "http://lorempixel.com/640/480/cats",
+      "userId": "7805284892",
+      "videoId": "99088",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/justen.jpg"
+    },
+    {
+      "id": 2,
+      "description": "Et ab accusamus iure. Non est officia libero ad quaerat a. Reprehenderit autem dolores quo. Et ipsa similique ipsa ea.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "est occaecati doloremque",
+      "title": "Internal Marketing Facilitator",
+      "imgUrl": "http://lorempixel.com/640/480/nightlife",
+      "userId": "4536071175",
+      "videoId": "89735",
+      "imageAvatar": "https://semantic-ui.com/images/avatar2/small/mark.png"
+    },
+    {
+      "id": 3,
+      "description": "Alias quis cumque autem ut quo nihil. Est sunt dolor illo adipisci. Quam quibusdam fugit consectetur voluptas alias autem totam voluptatem nostrum.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "ut voluptas quos",
+      "title": "Customer Directives Designer",
+      "imgUrl": "http://lorempixel.com/640/480/abstract",
+      "userId": "2157319508",
+      "videoId": "72869",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/jenny.jpg"
+    },
+    {
+      "id": 4,
+      "description": "Quia amet laboriosam similique totam qui quia qui at laudantium. Quia omnis itaque enim sapiente excepturi numquam harum ut vel. Quis sed quod qui distinctio eos.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "amet ratione molestias",
+      "title": "Investor Optimization Liaison",
+      "imgUrl": "http://lorempixel.com/640/480/people",
+      "userId": "7893242424",
+      "videoId": "65461",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/laura.jpg"
+    },
+    {
+      "id": 5,
+      "description": "Omnis necessitatibus dolor eligendi explicabo dolore minima. Et voluptatem sunt ipsam. Vel asperiores omnis eligendi mollitia aliquid recusandae aliquam quaerat. Veritatis quia et omnis omnis.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "id quod error",
+      "title": "Legacy Quality Executive",
+      "imgUrl": "http://lorempixel.com/640/480/food",
+      "userId": "0151351882",
+      "videoId": "22646",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/matt.jpg"
+    },
+    {
+      "id": 6,
+      "description": "Est soluta dicta nam officia ab optio at sint aut. Tenetur et magnam. Voluptate quis minima suscipit illo aut aspernatur perspiciatis qui qui. Quaerat et doloremque quis. Dolorum est odit. Blanditiis et amet corporis.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "odio dolor sequi",
+      "title": "Senior Mobility Officer",
+      "imgUrl": "http://lorempixel.com/640/480/food",
+      "userId": "6597761665",
+      "videoId": "64366",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/matt.jpg"
+    },
+    {
+      "id": 7,
+      "description": "Est at minus voluptas illo ratione asperiores sed. Voluptatem nobis odit unde soluta. Molestias quia omnis cumque aut architecto neque cumque in velit.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "et sed optio",
+      "title": "Lead Markets Technician",
+      "imgUrl": "http://lorempixel.com/640/480/cats",
+      "userId": "8905212395",
+      "videoId": "79557",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/helen.jpg"
+    },
+    {
+      "id": 8,
+      "description": "Consectetur nulla nemo libero quasi voluptas ullam sint. Nisi iure sunt vel et temporibus assumenda eos. Voluptate voluptas libero asperiores laborum ea voluptas. Asperiores fugit voluptatem iure nulla in earum. Optio explicabo qui ut. Atque mollitia et tempore.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "neque fugiat quibusdam",
+      "title": "Senior Brand Director",
+      "imgUrl": "http://lorempixel.com/640/480/abstract",
+      "userId": "4767738515",
+      "videoId": "39841",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/justen.jpg"
+    },
+    {
+      "id": 9,
+      "description": "Repellat quisquam quo sit et vero molestiae dignissimos. Aut cupiditate incidunt inventore voluptatem blanditiis exercitationem quaerat id. Aliquid aut et et.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "autem temporibus ducimus",
+      "title": "Dynamic Security Coordinator",
+      "imgUrl": "http://lorempixel.com/640/480/business",
+      "userId": "8545067596",
+      "videoId": "85969",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/helen.jpg"
+    },
+    {
+      "id": 10,
+      "description": "Laborum aut molestias necessitatibus et reiciendis similique consequatur eum exercitationem. Modi omnis alias reiciendis a veniam voluptatem et veniam sed. Et laudantium asperiores blanditiis quidem modi nam fuga ut. Inventore est non libero beatae sit voluptas voluptas voluptatem. Dicta voluptas quia incidunt sint reprehenderit sunt dolorem.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "id ea quisquam",
+      "title": "Future Usability Associate",
+      "imgUrl": "http://lorempixel.com/640/480/abstract",
+      "userId": "3818461211",
+      "videoId": "35552",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/jenny.jpg"
+    },
+    {
+      "id": 11,
+      "description": "Qui voluptatem sit. Veritatis adipisci sequi impedit. Aut quae et hic. Dolores provident ipsam est aut dolor.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "voluptatem neque possimus",
+      "title": "Forward Marketing Supervisor",
+      "imgUrl": "http://lorempixel.com/640/480/fashion",
+      "userId": "0789243529",
+      "videoId": "39036",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/jenny.jpg"
+    },
+    {
+      "id": 12,
+      "description": "Tempora quaerat ratione doloribus nostrum illum nobis. Fuga et numquam dignissimos id vel. Totam necessitatibus dolorem at aperiam ipsa animi voluptate ratione. Et architecto qui occaecati saepe officiis iusto recusandae.",
+      "publishTime": "08-13-2020",
+      "channelTitle": "optio eos tempore",
+      "title": "Corporate Directives Analyst",
+      "imgUrl": "http://lorempixel.com/640/480/food",
+      "userId": "8691783789",
+      "videoId": "26195",
+      "imageAvatar": "https://semantic-ui.com/images/avatar/small/joe.jpg"
+    },
+    {
+      "Stream_Title": "123",
+      "Stream_Description": "123",
+      "Channel_Title": "123",
+      "Notes": "123",
+      "description": "123",
+      "title": "123",
+      "channelTitle": "123",
+      "publishTime": "08-13-2020",
+      "imgUrl": "http://lorempixel.com/640/480/nature",
       "userId": "106253016033244803359",
-      "id": 31
+      "id": 13
     }
   ]
 }

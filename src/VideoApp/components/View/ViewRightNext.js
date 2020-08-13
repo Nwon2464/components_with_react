@@ -1,23 +1,17 @@
 import React from "react";
 import "./ViewRightNext.css";
 import { identity } from "lodash";
-const ViewRightNext = ({ videos }) => {
-  const renderList = videos.slice(1).map((video, id) => {
+const ViewRightNext = ({ streams }) => {
+  const renderList = streams.slice(1).map((stream, id) => {
     return (
       <div key={id} className="view__right__next__info">
-        <img
-          src={video.snippet.thumbnails.medium.url}
-          alt={video.snippet.title}
-        />
+        <img src={stream.imgUrl} alt={stream.title} />
 
         <div className="view__right__next__all">
           <h5 className="view__right__next__title">
-            {video.snippet.title.length > 35 &&
-              video.snippet.title.slice(0, 35) + "...."}
+            {stream.title.length > 35 && stream.title.slice(0, 35) + "...."}
           </h5>
-          <p className="view__right__next__channel">
-            {video.snippet.channelTitle}
-          </p>
+          <p className="view__right__next__channel">{stream.channelTitle}</p>
           <p className="view__right__view__description">Description</p>
         </div>
 

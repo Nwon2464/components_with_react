@@ -6,12 +6,9 @@ import history from "./history";
 const Modal = (props) => {
   const {
     onPortalDismiss,
-
-    selectedVideo: {
-      id: { videoId },
-      snippet,
-    },
+    selectedVideo: { videoId, title, description },
   } = props;
+  console.log(props);
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
   return ReactDOM.createPortal(
     <div onClick={onPortalDismiss} className="ui dimmer modals visible active">
@@ -23,9 +20,9 @@ const Modal = (props) => {
           <iframe src={videoSrc} />
         </div>
         <h4 id="modal__h4" className="ui header">
-          {snippet.title}
+          {title}
         </h4>
-        <p id="modal__p">{snippet.description}</p>
+        <p id="modal__p">{description}</p>
         <div id="modal__action" className="actions">
           <Link
             onClick={onPortalDismiss}

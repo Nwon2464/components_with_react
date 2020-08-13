@@ -36,17 +36,17 @@ export const fetchVideos = () => async (dispatch) => {
 // -------------------------------
 
 export const createStream = (formValues) => async (dispatch, getState) => {
-  console.log("FIRST CALL", formValues);
-  _.set(formValues, "snippet.description", formValues.Stream_Description);
-  _.set(formValues, "snippet.title", formValues.Stream_Title);
-  _.set(formValues, "snippet.channelTitle", formValues.Channel_Title);
+  // console.log("FIRST CALL", getState);
+  _.set(formValues, "description", formValues.Stream_Description);
+  _.set(formValues, "title", formValues.Stream_Title);
+  _.set(formValues, "channelTitle", formValues.Channel_Title);
 
   _.set(
     formValues,
-    "snippet.publishTime",
+    "publishTime",
     moment(new Date()).format("MM-DD-YYYY")
   );
-  _.set(formValues, "snippet.thumbnails.medium.url", faker.random.image());
+  _.set(formValues, "imgUrl", faker.random.image());
 
   const { userId } = getState().auth;
   const response = await axios.post(`${BASE_URL}/streams`, {

@@ -9,7 +9,7 @@ import moment from "moment";
 
 const StreamsCreate = (props) => {
   const renderFields = () => {
-    return _.map(FieldData, ({ label, name, initial }) => {
+    return _.map(FieldData, ({ label, name }) => {
       return (
         <Field
           key={name}

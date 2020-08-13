@@ -2,7 +2,7 @@ import React from "react";
 import "./ViewRight.css";
 import ViewRightNext from "./ViewRightNext";
 import AutorenewOutlinedIcon from "@material-ui/icons/AutorenewOutlined";
-const ViewRight = ({ videos }) => {
+const ViewRight = ({ streams }) => {
   return (
     <div className="view__right">
       <div className="view__right__next">
@@ -12,7 +12,7 @@ const ViewRight = ({ videos }) => {
           <AutorenewOutlinedIcon />
         </div>
       </div>
-      <ViewRightNext videos={videos} />
+      <ViewRightNext streams={streams} />
     </div>
   );
 };
