@@ -16,6 +16,7 @@
 .video__card__text > h4 {
   margin: 0;
   font-size: 14px;
+  height: 40px;
 }
 
 .video__card__text > p {
@@ -32,11 +33,20 @@
 }
 
 .user__admin {
-  position: absolute;
-  left: 160px;
-  top: 295px;
+  left: 100px;
+  /* bottom: auto; */
+  /* top: 295px; */
+  position: relative;
 }
 
-.user__admin > button {
+.user__admin > button:nth-child(1) {
   padding: 8px !important;
+  position: absolute;
+  bottom: 10px;
+}
+.user__admin > button:nth-child(2) {
+  padding: 8px !important;
+  position: absolute;
+  left: 50px;
+  bottom: 10px;
 }

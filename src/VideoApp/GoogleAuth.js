@@ -72,14 +72,14 @@ class GoogleAuth extends React.Component {
           <ul>
             <li style={{ backgroundColor: "#CB4024" }}>
               <a onClick={this.onSignIn} href="#">
-                <i class="google icon" />
+                <i className="google icon" />
                 Log in with Google
               </a>
             </li>
 
             <li style={{ backgroundColor: "#333333" }}>
               <a onClick={this.onSignIn} href="#">
-                <i class="github icon" />
+                <i className="github icon" />
                 Log in with Github
               </a>
             </li>
@@ -93,7 +93,6 @@ class GoogleAuth extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return <Fragment>{this.renderButton()}</Fragment>;
   }
 }

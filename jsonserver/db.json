@@ -2,13 +2,11 @@
   "videos": [
     {
       "albumId": 0,
-      "id": {
-        "videoId": "0fc97bd2-e119-4d56-94bc-554f81a75653"
-      },
+      "id": 0,
       "snippet": {
         "description": "Quisquam iusto maxime nemo fuga culpa temporibus enim velit praesentium. Quibusdam id dignissimos facere soluta consequuntur. In at autem quidem voluptas occaecati qui adipisci corrupti. Et debitis deserunt consequatur voluptate vitae nisi saepe. Aperiam dolorem eaque omnis. Cumque architecto possimus est aliquid.",
         "publishTime": "08-12-2020",
-        "channelTitle": "Placeat minus sit culpa suscipit et aliquam.",
+        "channelTitle": "ACE Academy",
         "title": "Product Research Associate",
         "thumbnails": {
           "medium": {
@@ -18,13 +16,12 @@
       },
       "name": "Magdalena Vandervort",
       "email": "Reilly66@gmail.com",
-      "userId": "106253016033244803359"
+      "userId": "106253016033244803359",
+      "videoId": "0fc97bd2-e119-4d56-94bc-554f81a75653"
     },
     {
       "albumId": 1,
-      "id": {
-        "videoId": "faefc819-d00b-4035-bf07-8b9a2e93f989"
-      },
+      "id": 1,
       "snippet": {
         "description": "Nam eum officiis. Consequatur dolor enim tenetur nisi autem accusamus ipsam expedita vel. Et sed facilis autem magnam mollitia dicta soluta ut. Iusto dolores voluptatem perspiciatis voluptatem.",
         "publishTime": "08-12-2020",
@@ -38,202 +35,20 @@
       },
       "name": "Ms. Mike Homenick",
       "email": "Camila_Hyatt@gmail.com",
-      "userId": "9ed67b12-212f-4609-ad0c-20d5c2b55b2e"
-    },
-    {
-      "albumId": 2,
-      "id": {
-        "videoId": "ef865c05-6bc3-40e2-8ff8-75d086b0b506"
-      },
-      "snippet": {
-        "description": "In ratione nam sit. Sed hic qui et aut ratione veritatis. Facilis id voluptatem deserunt neque rerum quia distinctio illo natus. Voluptatibus dicta dignissimos amet aut alias est et voluptatum.",
-        "publishTime": "08-12-2020",
-        "channelTitle": "In commodi atque aliquid in.",
-        "title": "Forward Division Coordinator",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/people"
-          }
-        }
-      },
-      "name": "Fay Corwin",
-      "email": "Emma53@gmail.com",
-      "userId": "feeca7fc-7094-489a-9956-d65563ec2c40"
-    },
-    {
-      "albumId": 3,
-      "id": {
-        "videoId": "02a3858f-cad8-4618-ae9c-7c9ada74ff8a"
-      },
-      "snippet": {
-        "description": "Vitae iusto ratione aut eum velit voluptatum. Tempora non alias hic aut laborum blanditiis delectus. Soluta ex ad. Amet non dolor. In cupiditate aut et voluptatem aspernatur sint quo porro.",
-        "publishTime": "08-12-2020",
-        "channelTitle": "Excepturi sunt quos dolorem non est tenetur suscipit sapiente sit.",
-        "title": "Human Markets Representative",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/cats"
-          }
-        }
-      },
-      "name": "Tomasa Mitchell",
-      "email": "Fermin_Padberg@gmail.com",
-      "userId": "aeb87be7-98c0-410e-a416-a78a312f25c4"
-    },
-    {
-      "albumId": 4,
-      "id": {
-        "videoId": "d61e1903-105c-470d-9c32-bc1d486e18fa"
-      },
-      "snippet": {
-        "description": "Veritatis rerum debitis est eos dolore. Nihil ut voluptatem nesciunt rerum sit neque perspiciatis. Aut modi aspernatur reiciendis aliquid in fugit unde sint repellendus. Ab odit quis vel nisi deleniti ipsa ipsum nulla. Non illo dolorem neque omnis.",
-        "publishTime": "08-12-2020",
-        "channelTitle": "Harum aut a.",
-        "title": "Global Group Planner",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/fashion"
-          }
-        }
-      },
-      "name": "Ambrose White I",
-      "email": "Chaya61@gmail.com",
-      "userId": "0e7ca420-0176-4691-ab6e-06f95cc4ac4f"
-    },
-    {
-      "albumId": 5,
-      "id": {
-        "videoId": "1a612975-9dc4-486f-ad96-afd7e21db0dc"
-      },
-      "snippet": {
-        "description": "Soluta molestias in laboriosam ut in sed est sit. Et a architecto reiciendis voluptatum assumenda aut. Quidem et et ea ut.",
-        "publishTime": "08-12-2020",
-        "channelTitle": "Et velit autem laborum qui.",
-        "title": "National Paradigm Designer",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/nature"
-          }
-        }
-      },
-      "name": "Jaydon Runte",
-      "email": "Kaia53@gmail.com",
-      "userId": "bd716017-d0a0-449e-820a-27a8ec6788d9"
-    },
-    {
-      "albumId": 6,
-      "id": {
-        "videoId": "1a8809d5-118b-4346-8137-5dede95fb47f"
-      },
-      "snippet": {
-        "description": "Quidem reprehenderit impedit sint laborum id. Repellendus rerum non sequi harum. Atque est deleniti qui a et minima maxime voluptatem voluptas. Voluptas et corrupti qui.",
-        "publishTime": "08-12-2020",
-        "channelTitle": "Est rem dignissimos.",
-        "title": "Global Operations Technician",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/people"
-          }
-        }
-      },
-      "name": "Quinten Treutel",
-      "email": "Rory94@yahoo.com",
-      "userId": "542a3ccd-4c3f-432e-8e40-bd22e2a0830e"
-    },
-    {
-      "albumId": 7,
-      "id": {
-        "videoId": "caa80c80-59f1-4f49-9c9f-887fbbc578bc"
-      },
-      "snippet": {
-        "description": "Pariatur officiis atque nihil perspiciatis dolor vero quis ducimus dolor. Magni tempora exercitationem corrupti. Cum atque facilis velit est. Dolor dolores corporis facere officia veritatis pariatur. Natus commodi soluta mollitia alias fuga vitae.",
-        "publishTime": "08-12-2020",
-        "channelTitle": "Omnis qui voluptas.",
-        "title": "International Communications Designer",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/fashion"
-          }
-        }
-      },
-      "name": "Travis Wiza",
-      "email": "Wade_Rempel40@hotmail.com",
-      "userId": "849ec45b-77b3-4dcf-bcb1-3c6a76e11ed5"
-    },
-    {
-      "albumId": 8,
-      "id": {
-        "videoId": "96e0d258-be4d-4f35-ba7e-345877b716ae"
-      },
-      "snippet": {
-        "description": "Natus consequatur et vero vitae doloremque repellat ullam magnam. Ipsam veritatis qui. Incidunt suscipit repellat tempore.",
-        "publishTime": "08-12-2020",
-        "channelTitle": "Quia inventore aperiam officiis consectetur vel illo.",
-        "title": "Future Integration Officer",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/transport"
-          }
-        }
-      },
-      "name": "Sim Kunde DDS",
-      "email": "Sandra.Lebsack83@hotmail.com",
-      "userId": "af332676-e0dc-428e-b165-6c4cf2165aed"
-    },
-    {
-      "albumId": 9,
-      "id": {
-        "videoId": "94daa9a9-8a78-4f8a-8ee6-176f15caf301"
-      },
-      "snippet": {
-        "description": "Quis qui dolore porro quis quaerat ipsum doloremque adipisci enim. Voluptatem animi esse est repellat delectus autem. Eum culpa vel sint sit deserunt necessitatibus ad reprehenderit tenetur. Illo voluptatem saepe. Exercitationem earum deserunt dolorem enim eveniet ipsam ipsum. Ducimus corrupti aut.",
-        "publishTime": "08-12-2020",
-        "channelTitle": "Earum iure molestiae qui dolorem sunt similique.",
-        "title": "Human Response Analyst",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/nature"
-          }
-        }
-      },
-      "name": "Cary Schamberger",
-      "email": "Bernadine_Effertz@gmail.com",
-      "userId": "50ab5e22-ed75-4131-bb6d-f524f3a8343c"
+      "userId": "9ed67b12-212f-4609-ad0c-20d5c2b55b2e",
+      "videoId": "faefc819-d00b-4035-bf07-8b9a2e93f989"
     }
   ],
   "streams": [
-    {
-      "title": "asdf",
-      "description": "asf",
-      "id": 1
-    },
-    {
-      "Stream_Title": "Title",
-      "Stream_Description": "Description",
-      "Channel_Title": "Title",
-      "Notes": "Notes",
-      "snippet": {
-        "description": "Description",
-        "title": "Title",
-        "thumbnails": {
-          "medium": {
-            "url": "http://lorempixel.com/640/480/cats"
-          }
-        },
-        "publishTime": "08-13-2020"
-      },
-      "userId": "106253016033244803359",
-      "id": 29
-    },
     {
       "Stream_Title": "t1",
       "Stream_Description": "d1",
       "Channel_Title": "t1",
       "Notes": "n1",
       "snippet": {
-        "description": "d1",
-        "title": "t1",
-        "channelTitle": "t1",
+        "description": "You want to become an excellent Developer in the world? you got me!! I will help you skyrocket your career and your life!",
+        "title": "React Developers need to watch my STREAM!",
+        "channelTitle": "League Of Legends",
         "publishTime": "08-13-2020",
         "thumbnails": {
           "medium": {
@@ -243,6 +58,25 @@
       },
       "userId": "106253016033244803359",
       "id": 30
+    },
+    {
+      "Stream_Title": "Icreated This STream",
+      "Stream_Description": "ROCKET JUMPER",
+      "Channel_Title": "codeEvolution",
+      "Notes": "thankyou",
+      "snippet": {
+        "description": "ROCKET JUMPER",
+        "title": "Icreated This STream",
+        "channelTitle": "codeEvolution",
+        "publishTime": "08-13-2020",
+        "thumbnails": {
+          "medium": {
+            "url": "http://lorempixel.com/640/480/business"
+          }
+        }
+      },
+      "userId": "106253016033244803359",
+      "id": 31
     }
   ]
 }

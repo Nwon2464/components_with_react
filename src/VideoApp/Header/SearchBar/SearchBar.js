@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import youtube from "../../apis/youtube";
+import React, { useState } from "react";
 import "./SearchBar.css";
 
 const SearchBar = (props) => {

@@ -35,16 +35,6 @@ export const fetchVideos = () => async (dispatch) => {
 };
 // -------------------------------
 
-// name: "snippet.title",
-//   },
-//   {
-//     label: "Stream Description",
-//     name: "snippet.description",
-//   },
-//   {
-//     label: "Channel Title",
-//     name: "snippet.channelTitle
-
 export const createStream = (formValues) => async (dispatch, getState) => {
   console.log("FIRST CALL", formValues);
   _.set(formValues, "snippet.description", formValues.Stream_Description);

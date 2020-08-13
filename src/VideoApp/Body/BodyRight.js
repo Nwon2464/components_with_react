@@ -19,7 +19,11 @@ const Body = (props) => {
     <div className="body__right">
       <h2>Stream Lists</h2>
       {renderCreate()}
-      <VideoList onVideoSelect={props.onVideoSelect} videos={props.videos} />
+      <VideoList
+        onVideoSelect={props.onVideoSelect}
+        videos={props.videos}
+        streams={props.streams}
+      />
     </div>
   );
 };

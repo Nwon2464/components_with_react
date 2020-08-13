@@ -5,9 +5,7 @@ const database = { videos: [], streams: [] };
 for (let i = 0; i < 10; i++) {
   database.videos.push({
     albumId: i,
-    id: {
-      videoId: faker.random.uuid(),
-    },
+    id: i,
     snippet: {
       description: faker.lorem.paragraph(),
       publishTime: Moment(new Date()).format("MM-DD-YYYY"),
@@ -20,6 +18,7 @@ for (let i = 0; i < 10; i++) {
       },
     },
     userId: faker.random.uuid(),
+    videoId: faker.random.uuid(),
   });
 }
 console.log(JSON.stringify(database));

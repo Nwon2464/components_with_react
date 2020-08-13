@@ -71,7 +71,7 @@ const App4 = (props) => {
     props.fetchVideos();
     props.fetchStreams();
   }, []);
-  console.log(props);
+
   return (
     <div>
       <Router history={history}>
@@ -99,8 +99,8 @@ const App4 = (props) => {
               <Search />
             </div>
           </Route>
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/streams/edit" component={StreamsEdit} />
+          {/* <Route exact path="/signup" component={SignUp} /> */}
+          <Route exact path="/streams/edit/:id" component={StreamsEdit} />
           <Route exact path="/streams/delete" component={StreamsDelete} />
           <Route exact path="/streams/show" component={StreamsShow} />
 
@@ -112,7 +112,11 @@ const App4 = (props) => {
           <Route exact path="/">
             <div className="app__body">
               <BodyLeft />
-              <BodyRight onVideoSelect={onVideoSelect} videos={props.videos} />
+              <BodyRight
+                onVideoSelect={onVideoSelect}
+                videos={props.videos}
+                streams={props.streams}
+              />
             </div>
           </Route>
         </Switch>

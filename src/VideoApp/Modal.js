@@ -1,5 +1,5 @@
 import "./Modal.css";
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import history from "./history";
@@ -12,7 +12,6 @@ const Modal = (props) => {
       snippet,
     },
   } = props;
-  console.log(props);
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
   return ReactDOM.createPortal(
     <div onClick={onPortalDismiss} className="ui dimmer modals visible active">

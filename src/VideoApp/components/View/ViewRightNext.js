@@ -1,9 +1,10 @@
 import React from "react";
 import "./ViewRightNext.css";
+import { identity } from "lodash";
 const ViewRightNext = ({ videos }) => {
   const renderList = videos.slice(1).map((video, id) => {
     return (
-      <div className="view__right__next__info">
+      <div key={id} className="view__right__next__info">
         <img
           src={video.snippet.thumbnails.medium.url}
           alt={video.snippet.title}

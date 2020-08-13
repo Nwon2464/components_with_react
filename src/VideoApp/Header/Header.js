@@ -17,7 +17,6 @@ const Header = (props) => {
     setIsActive(!isActive);
   };
   const dropdownRef = useRef(null);
-  console.log(isActive);
 
   useEffect(() => {
     const pageClickEvent = (e) => {
@@ -55,7 +54,6 @@ const Header = (props) => {
       return <FaceIcon className="header__icon" />;
     }
   };
-  console.log(props);
   return (
     <div className="header">
       <div className="header__left">
@@ -79,10 +77,10 @@ const Header = (props) => {
         <Link to="/streams/new">
           <VideoCallIcon className="header__icon" />
         </Link>
-        <Link>
+        <Link to="">
           <AppsIcon className="header__icon" />
         </Link>
-        <Link>
+        <Link to="">
           <NotificationsIcon className="header__icon" />
         </Link>
 
