@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import { fetchStream, editStream } from "../../actions";
 import StreamsForm from "./StreamsForm";
 const StreamsEdit = (props) => {
-  console.log(props);
-
+  
   useEffect(() => {
     props.fetchStream(props.match.params.id);
   }, []);

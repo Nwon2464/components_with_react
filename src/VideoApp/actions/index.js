@@ -5,6 +5,7 @@ import moment from "moment";
 import axios from "axios";
 import history from "../history";
 import {
+  SELECT_VIDEO,
   SIGN_IN,
   CREATE_STREAM,
   FETCH_STREAMS,
@@ -13,9 +14,32 @@ import {
   EDIT_STREAM,
   SIGN_OUT,
   FETCH_VIDEOS,
+  SHOW_MODAL,
+  CLOSE_MODAL,
 } from "./types";
 const BASE_URL = "http://localhost:3001";
 
+export const showModal = (trueOrFalse) => {
+  return {
+    type: SHOW_MODAL,
+    payload: trueOrFalse,
+  };
+};
+
+export const closeModal = (trueOrFalse) => {
+  return {
+    type: CLOSE_MODAL,
+    payload: trueOrFalse,
+  };
+};
+
+export const selectVideo = (streams) => {
+  return {
+    type: SELECT_VIDEO,
+    payload: streams,
+  };
+};
+// selectedVideo, setSelectedVideo
 export const signIn = (userProfile) => {
   return {
     type: SIGN_IN,
@@ -36,7 +60,6 @@ export const fetchVideos = () => async (dispatch) => {
 // -------------------------------
 
 export const createStream = (formValues) => async (dispatch, getState) => {
-  // console.log("FIRST CALL", getState);
   _.set(formValues, "description", formValues.Stream_Description);
   _.set(formValues, "title", formValues.Stream_Title);
   _.set(formValues, "channelTitle", formValues.Channel_Title);
@@ -82,4 +105,5 @@ export const editStream = (id, formValues) => async (dispatch) => {
 export const deleteStream = (id) => async (dispatch) => {
   const response = await axios.delete(`${BASE_URL}/streams/${id}`);
   dispatch({ type: DELETE_STREAM, payload: id });
+  history.push("/");
 };

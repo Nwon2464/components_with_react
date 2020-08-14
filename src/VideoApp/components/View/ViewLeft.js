@@ -10,10 +10,14 @@ import SaveAltIcon from "@material-ui/icons/SaveAlt";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import CommentList from "./CommentList/CommentList";
-
+import { fetchStreams } from "../../actions";
+import { connect } from "react-redux";
 const ViewLeft = (props) => {
   console.log(props);
-  const { videoId, title } = props.selectedVideo;
+  useEffect(() => {
+    props.fetchStreams();
+  }, []);
+  const { videoId, title } = props.selected;
 
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
   return (
@@ -68,4 +72,12 @@ const ViewLeft = (props) => {
   );
 };
 
-export default ViewLeft;
+const mapStateToProps = (state) => {
+  return {
+    selected: state.selectedVideo,
+  };
+};
+
+export default connect(mapStateToProps, {
+  fetchStreams,
+})(ViewLeft);

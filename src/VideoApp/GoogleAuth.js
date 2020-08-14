@@ -76,16 +76,6 @@ class GoogleAuth extends React.Component {
                 Log in with Google
               </a>
             </li>
-
-            <li style={{ backgroundColor: "#333333" }}>
-              <a onClick={this.onSignIn} href="#">
-                <i className="github icon" />
-                Log in with Github
-              </a>
-            </li>
-            <li style={{ backgroundColor: "#333333" }}>
-              <Link to="/signup">Sign Up</Link>
-            </li>
           </ul>
         </div>
       );

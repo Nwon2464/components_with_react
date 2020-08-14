@@ -11,7 +11,10 @@ import FaceIcon from "@material-ui/icons/Face";
 import SearchIcon from "@material-ui/icons/Search";
 import { Link } from "react-router-dom";
 import GoogleAuth from "../GoogleAuth";
+import LoginModal from "./LoginModal";
+import LoginSignUpButton from "./LoginSignUpButton";
 const Header = (props) => {
+  console.log(props);
   const [isActive, setIsActive] = useState(false);
   const onFaceIconClick = () => {
     setIsActive(!isActive);
@@ -75,14 +78,12 @@ const Header = (props) => {
       </div>
       <div className="header__icons">
         <Link to="/streams/new">
-          <VideoCallIcon className="header__icon" />
+          <VideoCallIcon
+            style={{ marginRight: "10px" }}
+            className="header__icon"
+          />
         </Link>
-        <Link to="">
-          <AppsIcon className="header__icon" />
-        </Link>
-        <Link to="">
-          <NotificationsIcon className="header__icon" />
-        </Link>
+        <LoginSignUpButton />
 
         <button onClick={onFaceIconClick}>{renderButton()}</button>
         <div

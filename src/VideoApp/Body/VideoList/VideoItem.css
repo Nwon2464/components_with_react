@@ -33,20 +33,19 @@
 }
 
 .user__admin {
-  left: 100px;
   /* bottom: auto; */
   /* top: 295px; */
   position: relative;
 }
-
-.user__admin > button:nth-child(1) {
+#user__admin__delete {
   padding: 8px !important;
   position: absolute;
   bottom: 10px;
+  left: 162px;
 }
-.user__admin > button:nth-child(2) {
+#user__admin__edit {
   padding: 8px !important;
   position: absolute;
-  left: 50px;
+  left: 120px;
   bottom: 10px;
 }

@@ -3,6 +3,7 @@ import { createStream } from "../../actions/index";
 import { connect } from "react-redux";
 import StreamsForm from "./StreamsForm";
 const StreamsCreate = (props) => {
+  console.log(props);
   const onSubmit = (formValues) => {
     props.createStream(formValues);
   };

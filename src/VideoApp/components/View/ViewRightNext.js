@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ViewRightNext.css";
-import { identity } from "lodash";
-const ViewRightNext = ({ streams }) => {
-  console.log(streams);
-  const renderList = streams.slice(1).map((stream, id) => {
+import { fetchStreams } from "../../actions";
+import { connect } from "react-redux";
+
+const ViewRightNext = (props) => {
+  useEffect(() => {
+    props.fetchStreams();
+  }, []);
+
+  const renderList = props.streams.slice(1).map((stream, id) => {
     return (
       <div key={id} className="view__right__next__info">
         <img src={stream.imgUrl} alt={stream.title} />
@@ -23,5 +28,10 @@ const ViewRightNext = ({ streams }) => {
 
   return <div>{renderList}</div>;
 };
+const mapStateToProps = (state) => {
+  return {
+    streams: Object.values(state.streams),
+  };
+};
 
-export default ViewRightNext;
+export default connect(mapStateToProps, { fetchStreams })(ViewRightNext);

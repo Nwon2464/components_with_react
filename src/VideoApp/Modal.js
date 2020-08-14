@@ -3,15 +3,23 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import history from "./history";
+import { closeModal } from "./actions";
+import { connect } from "react-redux";
 const Modal = (props) => {
+  // const {
+  //   selectedVideo: { id, title, description },
+  // } = props;
   const {
-    onPortalDismiss,
-    selectedVideo: { videoId, title, description },
+    selected: { id, title, description },
   } = props;
+
   console.log(props);
-  const videoSrc = `https://www.youtube.com/embed/${videoId}`;
+  const videoSrc = `https://www.youtube.com/embed/${id}`;
   return ReactDOM.createPortal(
-    <div onClick={onPortalDismiss} className="ui dimmer modals visible active">
+    <div
+      onClick={() => props.closeModal(false)}
+      className="ui dimmer modals visible active"
+    >
       <div
         onClick={(e) => e.stopPropagation()}
         className="ui standard modal visible active "
@@ -25,13 +33,17 @@ const Modal = (props) => {
         <p id="modal__p">{description}</p>
         <div id="modal__action" className="actions">
           <Link
-            onClick={onPortalDismiss}
-            to={`view/${videoId}`}
+            onClick={() => props.closeModal(false)}
+            to={`/streams/${id}`}
             className="ui primary button"
           >
             View Detail
           </Link>
-          <Link to="/" onClick={onPortalDismiss} className="ui button">
+          <Link
+            to="/"
+            onClick={() => props.closeModal(false)}
+            className="ui button"
+          >
             Close
           </Link>
         </div>
@@ -41,4 +53,10 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+const mapStateToProps = (state) => {
+  return {
+    selected: state.selectedVideo,
+  };
+};
+
+export default connect(mapStateToProps, { closeModal })(Modal);

@@ -2,25 +2,34 @@ import React from "react";
 import "./VideoItem.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { showModal, selectVideo } from "../../actions";
 const VideoItem = (props) => {
-  const { onVideoSelect, stream } = props;
+  const { stream } = props;
 
   const renderAdmin = () => {
     if (stream.userId === props.currentUserId) {
       return (
         <div className="user__admin">
-          <Link to={`/streams/edit/${stream.id}`} className="ui primary button">
+          <Link id="user__admin__edit" to={`/streams/edit/${stream.id}`} className="ui primary button">
             Edit
           </Link>
-          <button className="ui red button">Delete</button>
+          <Link id="user__admin__delete" to={`/streams/delete/${stream.id}`} className="ui red button">
+            Delete
+          </Link>
         </div>
       );
     }
   };
+  // props.selectVideo(streams);
+  // console.log(stream);
   return (
     <div className="video__card">
       <img
-        onClick={() => onVideoSelect(stream)}
+        // onClick={() => onVideoSelect(stream)}
+        onClick={() => {
+          props.showModal(true);
+          props.selectVideo(stream);
+        }}
         className="video__card__img"
         src={stream.imgUrl}
         alt={stream.title}
@@ -46,4 +55,4 @@ const mapStateToProps = (state) => {
     currentUserId: state.auth.userId,
   };
 };
-export default connect(mapStateToProps)(VideoItem);
+export default connect(mapStateToProps, { showModal, selectVideo })(VideoItem);

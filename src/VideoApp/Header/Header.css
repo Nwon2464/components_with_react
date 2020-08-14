@@ -6,7 +6,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: white;
+  /* background-color: white; */
 }
 .header__logo {
   height: 25px;
@@ -41,4 +41,12 @@
 }
 .menu.active {
   visibility: visible;
+}
+.smt__button__login {
+  padding: 0.55rem 0.75rem !important;
+}
+.smt__button__signup {
+  padding: 0.55rem !important;
+  color: whitesmoke !important;
+  background-color: #00b5ad !important;
 }

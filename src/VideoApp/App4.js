@@ -19,10 +19,8 @@ import StreamsShow from "./components/Streams/StreamsShow";
 import GoogleAuth from "./GoogleAuth";
 
 import Search from "./components/Search/Search";
-import ViewLeft from "./components/View/ViewLeft";
-import ViewRight from "./components/View/ViewRight";
-import SignUp from "./components/Login/SignUp";
 
+import { showModal } from "./actions";
 const KEY = "AIzaSyAR4iYaiGT4oNWSkga37lDBzxqJLp0Rg70";
 const clientId =
   "979708510452-oa44268dodlk7at65bponsb27c0utgn2.apps.googleusercontent.com";
@@ -31,11 +29,8 @@ const App4 = (props) => {
   useEffect(() => {
     props.fetchStreams();
   }, []);
-
   // const [streams, setStreams] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-
+  // const [showModal, setShowModal] = useState(false);
   //Youtube API
   // const onSubmitForm = async (term) => {
   //   const response = await youtube.get("/search", {
@@ -44,7 +39,7 @@ const App4 = (props) => {
   //       type: "video",
   //       maxResults: 20,
   //       key: KEY,
-  //       q: term,
+  //       q: term,f
   //     },
   //   });
   //   setVideos(response.data.items);
@@ -62,72 +57,68 @@ const App4 = (props) => {
   //   fetchData();
   // }, []);
 
-  const onVideoSelect = (streams) => {
-    setShowModal(true);
-    setSelectedVideo(streams);
-  };
+  // const onVideoSelect = (streams) => {
+  //   console.log(streams);
+  //   props.showModal(true);
+  //   props.selectVideo(streams);
+  // };
 
-  const onPortalDismiss = () => {
-    setShowModal(false);
-    history.push("/");
-  };
-
+  // const onPortalDismiss = () => {
+  //   props.closeModal(false);
+  //   history.push("/");
+  // };
+  console.log(props);
   return (
     <div>
       <Router history={history}>
         {/* <Header onSubmitForm={onSubmitForm} /> */}
-        <Header />
-        {/* <Route path="/" render={(props) => <Header {...props} />} /> */}
-        {showModal ? (
-          <Modal
-            onPortalDismiss={onPortalDismiss}
-            selectedVideo={selectedVideo}
-          />
-        ) : null}
+        <div>
+          <Header />
+          {/* <Route path="/" render={(props) => <Header {...props} />} /> */}
+          {props.modal ? <Modal /> : null}
 
-        <Switch>
-          <Route exact path="/view/:id">
-            <div className="view">
-              <ViewLeft selectedVideo={selectedVideo} />
-              <ViewRight streams={props.streams} />
-            </div>
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <div className="app__body">
+                <BodyLeft />
+                <BodyRight
+                  // onVideoSelect={onVideoSelect}
+                  streams={props.streams}
+                />
+              </div>
+            </Route>
+            <Route exact path="/streams/new">
+              <div className="app__body">
+                <StreamsCreate />
+              </div>
+            </Route>
 
-          <Route exact path="/search">
-            <div className="app__body">
-              <BodyLeft />
-              <Search />
-            </div>
-          </Route>
-          {/* <Route exact path="/signup" component={SignUp} /> */}
-          <Route exact path="/streams/edit/:id" component={StreamsEdit} />
-          <Route exact path="/streams/delete" component={StreamsDelete} />
-          <Route exact path="/streams/show" component={StreamsShow} />
-
-          <Route exact path="/streams/new">
-            <div className="app__body">
-              <StreamsCreate />
-            </div>
-          </Route>
-          <Route exact path="/">
-            <div className="app__body">
-              <BodyLeft />
-              <BodyRight
-                onVideoSelect={onVideoSelect}
-                streams={props.streams}
-              />
-            </div>
-          </Route>
-        </Switch>
+            <Route exact path="/search">
+              <div className="app__body">
+                <BodyLeft />
+                <Search />
+              </div>
+            </Route>
+            {/* <Route exact path="/signup" component={SignUp} /> */}
+            <Route exact path="/streams/edit/:id" component={StreamsEdit} />
+            <Route exact path="/streams/delete/:id" component={StreamsDelete} />
+            <Route exact path="/streams/:id" component={StreamsShow} />
+          </Switch>
+        </div>
       </Router>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     streams: Object.values(state.streams),
+    modal: state.modal.showModal,
   };
 };
 
-export default connect(mapStateToProps, { fetchStreams })(App4);
+export default connect(mapStateToProps, {
+  fetchStreams,
+  showModal,
+})(App4);
