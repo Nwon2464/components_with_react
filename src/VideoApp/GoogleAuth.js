@@ -1,11 +1,31 @@
 import React, { Fragment } from "react";
 import "./GoogleAuth.css";
 import { Link } from "react-router-dom";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import LanguageIcon from "@material-ui/icons/Language";
 import { signIn, signOut } from "./actions/index";
 import { connect } from "react-redux";
-
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import LoginModal from "./Header/LoginModal";
+import LoginModalForm from "./Header/LoginModalForm";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ToggleOffOutlinedIcon from "@material-ui/icons/ToggleOffOutlined";
+import Brightness2OutlinedIcon from "@material-ui/icons/Brightness2Outlined";
+import FirstIconRight from "./FirstIconRight";
+
 class GoogleAuth extends React.Component {
+  constructor(props) {
+    super(props);
+    this.modalRef = React.createRef();
+    this.state = {
+      open: false,
+    };
+  }
+
+  openLoginModal = () => {
+    this.modalRef.current.openModal();
+  };
+
   componentDidMount() {
     window.gapi.load("client:auth2", () => {
       window.gapi.client
@@ -69,14 +89,7 @@ class GoogleAuth extends React.Component {
     } else {
       return (
         <div className="dropdown__auth">
-          <ul>
-            <li style={{ backgroundColor: "#CB4024" }}>
-              <a onClick={this.onSignIn} href="#">
-                <i className="google icon" />
-                Log in with Google
-              </a>
-            </li>
-          </ul>
+          <FirstIconRight />
         </div>
       );
     }

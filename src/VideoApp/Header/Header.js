@@ -3,6 +3,10 @@ import "./Header.css";
 import { connect } from "react-redux";
 import SearchBar from "./SearchBar/SearchBar";
 
+import GoogleAuth from "../GoogleAuth";
+import LoginModal from "./LoginModal";
+import LoginSignUpButton from "./LoginSignUpButton";
+
 import VideoCallIcon from "@material-ui/icons/VideoCall";
 import MenuIcon from "@material-ui/icons/Menu";
 import AppsIcon from "@material-ui/icons/Apps";
@@ -10,9 +14,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import FaceIcon from "@material-ui/icons/Face";
 import SearchIcon from "@material-ui/icons/Search";
 import { Link } from "react-router-dom";
-import GoogleAuth from "../GoogleAuth";
-import LoginModal from "./LoginModal";
-import LoginSignUpButton from "./LoginSignUpButton";
+import HeaderIconRight from "../FirstIconRight";
 const Header = (props) => {
   console.log(props);
   const [isActive, setIsActive] = useState(false);
@@ -23,10 +25,7 @@ const Header = (props) => {
 
   useEffect(() => {
     const pageClickEvent = (e) => {
-      if (
-        dropdownRef.current !== null &&
-        !dropdownRef.current.contains(e.target)
-      ) {
+      if (dropdownRef.current !== null) {
         setIsActive(!isActive);
       }
     };
@@ -66,14 +65,13 @@ const Header = (props) => {
         <Link to="/">
           <img
             className="header__logo"
-            src="https://images.indianexpress.com/2017/08/youtube_logo_new-759.jpg"
+            src="https://react.semantic-ui.com/logo.png"
             alt="youtube"
           />
         </Link>
       </div>
       <div className="header__input">
         <SearchBar onSubmitForm={props.onSubmitForm} />
-        {/* icon need to be replaced */}
         <SearchIcon className="header__inputButton" />
       </div>
       <div className="header__icons">
@@ -83,7 +81,7 @@ const Header = (props) => {
             className="header__icon"
           />
         </Link>
-        <LoginSignUpButton />
+        {!props.isSignedIn ? <LoginSignUpButton /> : null}
 
         <button onClick={onFaceIconClick}>{renderButton()}</button>
         <div

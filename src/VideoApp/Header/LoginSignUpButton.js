@@ -10,6 +10,7 @@ import { Field, reduxForm } from "redux-form";
 import { SubmissionError } from "redux-form";
 
 const LoginSignUpButton = () => {
+
   const modalRef = React.useRef();
 
   const openLoginModal = () => {
