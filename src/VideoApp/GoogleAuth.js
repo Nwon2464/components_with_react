@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
 import "./GoogleAuth.css";
 import { Link } from "react-router-dom";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import LanguageIcon from "@material-ui/icons/Language";
 import { signIn, signOut } from "./actions/index";
 import { connect } from "react-redux";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
@@ -12,7 +10,11 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ToggleOffOutlinedIcon from "@material-ui/icons/ToggleOffOutlined";
 import Brightness2OutlinedIcon from "@material-ui/icons/Brightness2Outlined";
 import FirstIconRight from "./FirstIconRight";
-
+import FaceIcon from "@material-ui/icons/Face";
+import NavBar from "./Header/NavBar/NavBar";
+import NavItem from "./Header/NavBar/NavItem";
+import DropdownMenu from "./Header/NavBar/DropdownMenu";
+import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 class GoogleAuth extends React.Component {
   constructor(props) {
     super(props);
@@ -58,9 +60,22 @@ class GoogleAuth extends React.Component {
   };
   renderButton() {
     if (this.props.isSignedIn === null) {
-      return;
+      return (
+        <div
+          style={{ marginLeft: "10px" }}
+          className="ui active inline loader"
+        ></div>
+      );
     } else if (this.props.isSignedIn) {
       return (
+        // <NavBar>
+        //   <NavItem icon={<AccountCircleIcon className="header__icon" />}>
+        //     <DropdownMenu
+        //       logIn={"logged"}
+        //       onSignOut={this.onSignOut}
+        //     ></DropdownMenu>
+        //   </NavItem>
+        // </NavBar>
         <div
           style={{ backgroundColor: "white", border: "1px solid red" }}
           className="dropdown__auth"
@@ -88,9 +103,11 @@ class GoogleAuth extends React.Component {
       );
     } else {
       return (
-        <div className="dropdown__auth">
-          <FirstIconRight />
-        </div>
+        <NavBar>
+          <NavItem icon={<FaceIcon className="header__icon" />}>
+            <DropdownMenu></DropdownMenu>
+          </NavItem>
+        </NavBar>
       );
     }
   }

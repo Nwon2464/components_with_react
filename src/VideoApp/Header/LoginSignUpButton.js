@@ -10,7 +10,6 @@ import { Field, reduxForm } from "redux-form";
 import { SubmissionError } from "redux-form";
 
 const LoginSignUpButton = () => {
-
   const modalRef = React.useRef();
 
   const openLoginModal = () => {
@@ -50,7 +49,6 @@ const LoginSignUpButton = () => {
           onClick={() => signUpModalRef.current.close()}
           className="window__icon large window close icon"
         ></i>
-        {/* <SignUpModalForm /> */}
         <SubmitValidationForm />
       </SignUpModal>
     </>
@@ -71,9 +69,11 @@ const SubmitValidationForm = (props) => {
   const { error, handleSubmit, pristine, reset, submitting } = props;
   return (
     <>
-      <form className="ui large form"
-      style={{top:"-4.3%"}}
-       onSubmit={handleSubmit}>
+      <form
+        className="ui large form"
+        style={{ top: "-4.3%" }}
+        onSubmit={handleSubmit}
+      >
         <div className="field">
           <Field
             name="username"
