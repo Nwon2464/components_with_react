@@ -65,6 +65,7 @@ nav {
   margin-bottom: 10px;
 }
 .menu__item {
+  cursor: pointer;
   height: 50px;
   display: flex;
   align-items: center;

@@ -40,6 +40,7 @@ const LoginSignUpButton = () => {
       </LoginModal>
       <button
         onClick={openSignUpModal}
+        style={{ marginRight: "5px" }}
         className="header__icon smt__button__signup ui button"
       >
         Sign Up
