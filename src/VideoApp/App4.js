@@ -5,7 +5,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { fetchVideos, fetchStreams } from "./actions";
 import { Router, Route, Switch } from "react-router-dom";
-import Header from "./Header/Header";
+import Header from "./Header";
 import BodyRight from "./Body/BodyRight";
 import BodyLeft from "./Body/BodyLeft";
 import Modal from "./Modal";
@@ -16,7 +16,7 @@ import StreamsCreate from "./components/Streams/StreamsCreate";
 import StreamsDelete from "./components/Streams/StreamsDelete";
 import StreamsEdit from "./components/Streams/StreamsEdit";
 import StreamsShow from "./components/Streams/StreamsShow";
-import GoogleAuth from "./GoogleAuth";
+import GoogleAuth from "./Header";
 
 import Search from "./components/Search/Search";
 
@@ -67,7 +67,6 @@ const App4 = (props) => {
   //   props.closeModal(false);
   //   history.push("/");
   // };
-  console.log(props);
   return (
     <div>
       <Router history={history}>

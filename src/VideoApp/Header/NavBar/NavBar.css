@@ -39,7 +39,10 @@ nav {
   justify-content: center;
   transition: filter 300ms;
 }
-
+.icon__button img {
+  width: 21px;
+  border-radius: 4px;
+}
 .icon-button:hover {
   filter: brightness(1.2);
 }

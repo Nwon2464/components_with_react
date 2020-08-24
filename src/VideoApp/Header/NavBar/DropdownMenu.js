@@ -9,6 +9,8 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { CSSTransition } from "react-transition-group";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { FaLongArrowAltUp } from "react-icons/fa";
+import { connect } from "react-redux";
+
 const DropdownMenu = (props) => {
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
@@ -61,6 +63,8 @@ const DropdownMenu = (props) => {
         props.signOut();
       }
     };
+
+    console.log("===", props);
     return (
       <>
         <LoginModal ref={modalRef}>
@@ -81,14 +85,26 @@ const DropdownMenu = (props) => {
           }}
           className="menu__item"
         >
-          <span className="icon__button">{props.leftIcon}</span>
-          {props.children}
+          <span className="icon__button">
+            {props.leftIcon ? props.leftIcon : <img src={props.userImage} />}
+          </span>
+          {props.children ? (
+            props.children
+          ) : (
+            <div style={{ marginTop: 15 }}>
+              {props.userEmail}
+              <hr
+                style={{ position: "relative", top: 9, width: 200, right: 50 }}
+              />
+            </div>
+          )}
+
           <span className="icon__right">{props.rightIcon}</span>
         </div>
       </>
     );
   };
-  console.log("--->thisis dropdownMenu", dropdownRef);
+
   return (
     <div
       // style={{ height: menuHeight }}
@@ -113,27 +129,14 @@ const DropdownMenu = (props) => {
                   goToMenu={contents.goToMenu ? contents.goToMenu : ""}
                   rightIcon={contents.rightIcon}
                   signOut={props.onSignOut}
+                  userImage={props.userImage}
+                  userEmail={props.userEmail}
                 >
                   {contents.content}
                 </DropdownItem>
               </React.Fragment>
             );
           })}
-
-          {/* <DropdownItem
-            rightIcon={<ChevronRightIcon />}
-            leftIcon={<LanguageIcon />}
-            goToMenu="language"
-          >
-            Language
-          </DropdownItem>
-          <DropdownItem
-            leftIcon={<Brightness2OutlinedIcon />}
-            rightIcon={<ToggleOffOutlinedIcon />}
-          >
-            Dark Theme
-          </DropdownItem>
-          <DropdownItem leftIcon={<ExitToAppIcon />}>Log In</DropdownItem> */}
         </div>
       </CSSTransition>
       <CSSTransition
@@ -160,22 +163,6 @@ const DropdownMenu = (props) => {
               </React.Fragment>
             );
           })}
-
-          {/* <DropdownItem
-            backgroundcolor="#EFEFF1"
-            leftIcon={<ChevronLeftIcon />}
-            goToMenu="main"
-          >
-            Language
-          </DropdownItem>
-          <DropdownItem>English</DropdownItem>
-          <DropdownItem>Dansk</DropdownItem>
-          <DropdownItem>Deutsch</DropdownItem>
-          <DropdownItem>English - UK</DropdownItem>
-          <DropdownItem>Español - España</DropdownItem>
-          <DropdownItem>中文 简体</DropdownItem>
-          <DropdownItem>日本語</DropdownItem>
-          <DropdownItem>한국어</DropdownItem> */}
         </div>
       </CSSTransition>
     </div>

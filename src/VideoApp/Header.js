@@ -1,31 +1,36 @@
 import React, { Fragment } from "react";
-import "./GoogleAuth.css";
+import "./Header.css";
 import { Link } from "react-router-dom";
 import { signIn, signOut } from "./actions/index";
 import { connect } from "react-redux";
 
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import LoginModal from "./Header/LoginModal";
 import LoginModalForm from "./Header/LoginModalForm";
+
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ToggleOffOutlinedIcon from "@material-ui/icons/ToggleOffOutlined";
 import Brightness2OutlinedIcon from "@material-ui/icons/Brightness2Outlined";
-import FirstIconRight from "./FirstIconRight";
 import FaceIcon from "@material-ui/icons/Face";
-import NavBar from "./Header/NavBar/NavBar";
-import NavItem from "./Header/NavBar/NavItem";
-import DropdownMenu from "./Header/NavBar/DropdownMenu";
 import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import SubscriptionsOutlinedIcon from "@material-ui/icons/SubscriptionsOutlined";
-
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
-
 import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined";
 import LanguageIcon from "@material-ui/icons/Language";
 import SupervisedUserCircleOutlinedIcon from "@material-ui/icons/SupervisedUserCircleOutlined";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import SettingsApplicationsOutlinedIcon from "@material-ui/icons/SettingsApplicationsOutlined";
-class GoogleAuth extends React.Component {
+import VideoCallIcon from "@material-ui/icons/VideoCall";
+import MenuIcon from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
+
+import SearchBar from "./Header/SearchBar/SearchBar";
+import LoginSignUpButton from "./Header/LoginSignUpButton";
+import FirstIconRight from "./FirstIconRight";
+import NavBar from "./Header/NavBar/NavBar";
+import NavItem from "./Header/NavBar/NavItem";
+import DropdownMenu from "./Header/NavBar/DropdownMenu";
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.modalRef = React.createRef();
@@ -68,6 +73,7 @@ class GoogleAuth extends React.Component {
   onSignOut = () => {
     this.auth.signOut();
   };
+
   renderButton() {
     if (this.props.isSignedIn === null) {
       return (
@@ -86,54 +92,64 @@ class GoogleAuth extends React.Component {
               onSignOut={this.onSignOut}
               allContents={loggedInContents}
               languages={languages}
+              userImage={this.props.userImage}
+              userEmail={this.props.userEmail}
             ></DropdownMenu>
           </NavItem>
         </NavBar>
-        // <div
-        //   style={{ backgroundColor: "white", border: "1px solid red" }}
-        //   className="dropdown__auth"
-        // >
-        //   <ul id="log__in__auth2">
-        //     <li>
-        //       <AccountCircleOutlinedIcon />
-        //       <a onClick={this.onSignOut} href="#">
-        //         Logout
-        //       </a>
-        //     </li>
-        //     <li>
-        //       <a onClick={this.onSignOut} href="#">
-        //         <AccountCircleOutlinedIcon />
-        //       </a>
-        //     </li>
-        //     <li>
-        //       <img className="auth__logged__in" src={this.props.userImage} />
-        //     </li>
-        //     <li>
-        //       <a href="#">ProfileProfileProfile</a>
-        //     </li>
-        //   </ul>
-        // </div>
       );
     } else {
       return (
-        <NavBar>
-          <NavItem
-            notLoggedIcon={
-              <FaceIcon fontSize="large" className="header__icon" />
-            }
-          >
-            <DropdownMenu
-              allContents={yetLoggedInContents}
-              languages={languages}
-            ></DropdownMenu>
-          </NavItem>
-        </NavBar>
+        <>
+          <LoginSignUpButton />
+
+          <NavBar>
+            <NavItem
+              notLoggedIcon={
+                <FaceIcon fontSize="large" className="header__icon" />
+              }
+            >
+              <DropdownMenu
+                allContents={yetLoggedInContents}
+                languages={languages}
+              ></DropdownMenu>
+            </NavItem>
+          </NavBar>
+        </>
       );
     }
   }
 
   render() {
-    return <Fragment>{this.renderButton()}</Fragment>;
+    return (
+      <div className="header">
+        <div className="header__left">
+          <button>
+            <MenuIcon />
+          </button>
+          <Link to="/">
+            <img
+              className="header__logo"
+              src="https://react.semantic-ui.com/logo.png"
+              alt="youtube"
+            />
+          </Link>
+        </div>
+        <div className="header__input">
+          <SearchBar onSubmitForm={this.props.onSubmitForm} />
+          <SearchIcon className="header__inputButton" />
+        </div>
+        <div className="header__icons">
+          <Link to="/streams/new">
+            <VideoCallIcon
+              style={{ marginRight: "10px" }}
+              className="header__icon"
+            />
+          </Link>
+          {this.renderButton()}
+        </div>
+      </div>
+    );
   }
 }
 
@@ -142,9 +158,10 @@ const mapStateToProps = (state) => {
     isSignedIn: state.auth.isSignedIn,
     userId: state.auth.userId,
     userImage: state.auth.userImage,
+    userEmail: state.auth.userEmail,
   };
 };
-export default connect(mapStateToProps, { signIn, signOut })(GoogleAuth);
+export default connect(mapStateToProps, { signIn, signOut })(Header);
 
 const yetLoggedInContents = [
   {
@@ -166,8 +183,9 @@ const yetLoggedInContents = [
 
 const loggedInContents = [
   {
-    content: "dnjsskarb123",
-    leftIcon: <AccountCircleOutlinedIcon />,
+    content: "",
+    leftIcon: "",
+
     logged: true,
     online: "Online",
     offline: "offline",
