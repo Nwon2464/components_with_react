@@ -67,23 +67,19 @@ const App4 = (props) => {
   //   props.closeModal(false);
   //   history.push("/");
   // };
+
   return (
     <div>
       <Router history={history}>
-        {/* <Header onSubmitForm={onSubmitForm} /> */}
         <div>
           <Header />
-          {/* <Route path="/" render={(props) => <Header {...props} />} /> */}
           {props.modal ? <Modal /> : null}
 
           <Switch>
             <Route exact path="/">
               <div className="app__body">
                 <BodyLeft />
-                <BodyRight
-                  // onVideoSelect={onVideoSelect}
-                  streams={props.streams}
-                />
+                <BodyRight streams={props.streams} />
               </div>
             </Route>
             <Route exact path="/streams/new">
@@ -98,7 +94,6 @@ const App4 = (props) => {
                 <Search />
               </div>
             </Route>
-            {/* <Route exact path="/signup" component={SignUp} /> */}
             <Route exact path="/streams/edit/:id" component={StreamsEdit} />
             <Route exact path="/streams/delete/:id" component={StreamsDelete} />
             <Route exact path="/streams/:id" component={StreamsShow} />
@@ -110,7 +105,6 @@ const App4 = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     streams: Object.values(state.streams),
     modal: state.modal.showModal,
