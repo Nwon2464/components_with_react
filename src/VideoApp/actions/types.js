@@ -9,6 +9,9 @@ export const EDIT_STREAM = "EDIT_STREAM";
 export const SHOW_MODAL = "SHOW_MODAL";
 export const FETCH_VIDEOS = "FETCH_VIDEOS";
 export const CLOSE_MODAL = "CLOSE_MODAL";
+
+export const MOVE_RIGHT = "MOVE_RIGHT";
+export const MOVE_LEFT = "MOVE_LEFT";
 //right after const ctrl + D * 4
 //right shift twice
 //ctrl + shift + right shitft

@@ -22,7 +22,7 @@ const SignUpModal = forwardRef((props, ref) => {
       <div className="modal-wrapper">
         <div onClick={close} className="modal-backdrop">
           <div
-            style={{ height: "94%" }}
+            style={{ height: "98%" }}
             onClick={(e) => e.stopPropagation()}
             className="modal-box"
           >

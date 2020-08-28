@@ -3,7 +3,7 @@ import "./BodyRight.css";
 import VideoList from "./VideoList/VideoList";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import Carousel from "./Carousel/Carousel";
 const Body = (props) => {
   const renderCreate = () => {
     if (props.isSignedIn) {
@@ -17,7 +17,10 @@ const Body = (props) => {
 
   return (
     <div className="body__right">
-      <h2>Stream Lists</h2>
+      {/* <h2>Stream Lists</h2> */}
+
+      <Carousel />
+
       {renderCreate()}
       <VideoList onVideoSelect={props.onVideoSelect} streams={props.streams} />
     </div>
