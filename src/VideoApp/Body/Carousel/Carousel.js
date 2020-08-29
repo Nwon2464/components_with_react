@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./Carousel.css";
 import { connect } from "react-redux";
+import axios from "axios";
 import { datas } from "./carouseldata";
 const Carousel = (props) => {
   const iframeRef = useRef();
@@ -105,7 +106,28 @@ const Carousel = (props) => {
     setXPos(XRightPosition);
     setDirection("right");
   };
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get("http://localhost:5000/api/v1");
+      const token = response.data.token;
 
+      const res = await axios.post("http://localhost:5000/api/v1/twitch", {
+        data: token,
+      });
+      console.log(res);
+      // const request = await axios.get(
+      //   "https://api.twitch.tv/helix/games?id=493057?client_id=3v5apurywz4f102mixl63eb53q7z4h",
+      //   {
+      //     headers: {
+      //       Authorization: "Bearer " + token, //the token is a variable which holds the token
+      //     },
+      //   }
+      // );
+      // console.log(request);
+    };
+
+    fetchData();
+  }, []);
   return (
     <>
       <button className="btn left" onClick={moveRight}>
@@ -133,6 +155,7 @@ const Carousel = (props) => {
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
+
               {loading ? <div className="loading"></div> : null}
               <div className="image__card">
                 <div className="image__card__upper">
