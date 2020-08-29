@@ -106,28 +106,20 @@ const Carousel = (props) => {
     setXPos(XRightPosition);
     setDirection("right");
   };
+  const [twitch, setTwitch] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("http://localhost:5000/api/v1");
-      const token = response.data.token;
-
-      const res = await axios.post("http://localhost:5000/api/v1/twitch", {
-        data: token,
-      });
-      console.log(res);
-      // const request = await axios.get(
-      //   "https://api.twitch.tv/helix/games?id=493057?client_id=3v5apurywz4f102mixl63eb53q7z4h",
-      //   {
-      //     headers: {
-      //       Authorization: "Bearer " + token, //the token is a variable which holds the token
-      //     },
-      //   }
-      // );
-      // console.log(request);
+      const {
+        data: {
+          data: { data },
+        },
+      } = await axios.get("http://localhost:5000/api/v1/twitch");
+      // console.log(data);
+      setTwitch(data);
     };
-
     fetchData();
   }, []);
+  // console.log(twitch);
   return (
     <>
       <button className="btn left" onClick={moveRight}>
@@ -137,6 +129,25 @@ const Carousel = (props) => {
         ›
       </button>
       <div ref={styleRef} className="slides">
+        {/* {!twitch
+          ? null
+          : twitch.map((res) => {
+              return (
+                <iframe
+                  ref={iframeRef}
+                  // loading="lazy"
+                  // rel="preload"
+                  className="iframe"
+                  width="1527.24"
+                  height="300"
+                  src={res.embed_url}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              );
+            })} */}
+
         {datas.map((slide, i) => {
           const showAnimation = direction === "right" || direction === "left";
           const position = "animate absolute image";
@@ -155,7 +166,6 @@ const Carousel = (props) => {
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
-
               {loading ? <div className="loading"></div> : null}
               <div className="image__card">
                 <div className="image__card__upper">
