@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const twitchSchema = new Schema(
   {
     twitch: {},
+    twitchChannel: {},
   },
   {
     timestamps: true,
