@@ -106,7 +106,8 @@ const Carousel = (props) => {
     setXPos(XRightPosition);
     setDirection("right");
   };
-  const [twitch, setTwitch] = useState([]);
+  const [twitchLiveStream, setTwitchLiveStream] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const {
@@ -115,11 +116,14 @@ const Carousel = (props) => {
         },
       } = await axios.get("http://localhost:5000/api/v1/twitch");
       // console.log(data);
-      setTwitch(data);
+      setTwitchLiveStream(data);
     };
     fetchData();
   }, []);
-  // console.log(twitch);
+  console.log(
+    twitchLiveStream.map((iframe) => console.log(typeof iframe.user_name))
+  );
+
   return (
     <>
       <button className="btn left" onClick={moveRight}>
@@ -161,7 +165,10 @@ const Carousel = (props) => {
                 className="iframe"
                 width="1527.24"
                 height="300"
-                src={slide.iFrameSrc}
+                // src={slide.iFrameSrc}
+                // src={`https://player.twitch.tv/?channel=${twitchLiveStream.map(
+                //   (iframe) => iframe.user_name
+                // )}&muted=true&parent=localhost`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
