@@ -40,6 +40,11 @@ router.get("/twitch", async (req, res) => {
         }
       );
       const newStreamsData = getStreamsRequest.data.data;
+      // --------------------
+      let b = newStreamsData.slice();
+      // console.log(b)
+
+      // --------------------
       let URL1 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[0].user_id}`;
       let URL2 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[1].user_id}`;
       let URL3 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[2].user_id}`;
@@ -73,6 +78,23 @@ router.get("/twitch", async (req, res) => {
       const promiseTag3 = axios.get(UserTags3, options);
       const promiseTag4 = axios.get(UserTags4, options);
       const promiseTag5 = axios.get(UserTags5, options);
+      // await axios
+      //   .all([promiseTag1, promiseTag2, promiseTag3, promiseTag4, promiseTag5])
+      //   .then(
+      //     axios.spread((...response) => {
+      //       let a = [];
+      //       response.map((data) =>
+      //         a.push({
+      //           tag: data.data.data.map((e) => e.tag_id),
+      //           localization_names: data.data.data.map(
+      //             (e) => e.localization_names["en-us"]
+      //           ),
+      //         })
+      //       );
+
+      //       console.log(a);
+      //     })
+      //   );
 
       // console.log(ll.data.data[0].localization_names["en-us"]);
 
@@ -98,13 +120,14 @@ router.get("/twitch", async (req, res) => {
           axios.spread(async (...response) => {
             let gameName = [];
             let imageUrl = [];
+            let tags = [];
             response.map((data, i) => {
-              data.data.data.map((res) => {
-                if (res.hasOwnProperty("tag_id")) {
-                  console.log(res);
-                }
+              tags.push({
+                tag: data.data.data.map((e) => e.tag_id),
+                localization_names: data.data.data.map(
+                  (e) => e.localization_names
+                ),
               });
-
               data.data.data.map((res) => {
                 if (res.hasOwnProperty("profile_image_url")) {
                   imageUrl.push({
@@ -124,45 +147,18 @@ router.get("/twitch", async (req, res) => {
             // let objects = response[i].data.data;
             // }
             // console.log(gameName);
-
+            // console.log(tags);
+            const filterTags = tags.filter((e, i) => e.tag[0] !== undefined);
+            // console.log(filterTags);
             res.json({
               message: "API SUCCEED! - 👋🌎🌍🌏",
               getStreams: getStreamsRequest.data.data,
               getGameName: gameName,
               getUsers: imageUrl,
+              getTags: filterTags,
             });
           })
         );
-
-      // const getUsersRequest1 = await axios.get(
-      //   `https://api.twitch.tv/helix/users?id=${user_id[0]}`,
-      //   {
-      //     headers: {
-      //       Authorization: `Bearer ${token}`,
-      //       "client-id": client_id,
-      //     },
-      //   }
-      // );
-      // console.log(getUsersRequest1.data.data);
-
-      // const channelrequest = await axios.get(
-      //   // "https://api.twitch.tv/helix/channels?broadcaster_id=555293079",
-      //   "https://api.twitch.tv/helix/streams/tags?broadcaster_id=555293079",
-      //   // `https://api.twitch.tv/helix/users?id=555293079`,
-      //   {
-      //     headers: {
-      //       Authorization: `Bearer ${token}`,
-      //       "client-id": client_id,
-      //     },
-      //   }
-      // );
-      // console.log(channelrequest.data.data[0].localization_names);
-
-      // console.log(channelrequest.data.data[0].localization_names["en-us"]);
-
-      // console.log(channelrequest.data.data[1].localization_names);
-      // const newTwitch = new Twitch({ twitch: request.data });
-      // const createdTwitch = await newTwitch.save();
     }
   } catch (error) {
     console.log(error);
