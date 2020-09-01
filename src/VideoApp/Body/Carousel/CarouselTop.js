@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./Carousel.css";
+import "./CarouselTop.css";
 import { connect } from "react-redux";
 import axios from "axios";
 import { datas } from "./carouseldata";
 import _ from "lodash";
-const Carousel = (props) => {
+const CarouselTop = (props) => {
   const iframeRef = useRef();
 
   const styleRef = useRef();
@@ -225,7 +225,7 @@ const Carousel = (props) => {
   };
   // console.log(xAuto)
   return (
-    <React.Fragment className="carousel">
+    <div className="carousel">
       <button className="btn left" onClick={moveRight}>
         ‹
       </button>
@@ -283,8 +283,8 @@ const Carousel = (props) => {
           );
         })}
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 
-export default Carousel;
+export default CarouselTop;

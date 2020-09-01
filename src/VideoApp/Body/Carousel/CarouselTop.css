@@ -6,7 +6,9 @@ a {
   font-size: 0.8em;
   text-decoration: none;
 }
-
+.carousel {
+  height: 45vh;
+}
 
 .slides {
   display: flex;

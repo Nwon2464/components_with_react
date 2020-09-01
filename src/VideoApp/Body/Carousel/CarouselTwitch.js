@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { datas } from "./carouseldata";
 import "./Carousel.css";
-import CarouselRight from "./CarouseRight";
+import CarouselRight from "./CarouselMiddle";
 import _ from "lodash";
 const CarouselTwitch = () => {
   const [getTwitchLiveStream, setGetTwitchLiveStream] = useState([]);
