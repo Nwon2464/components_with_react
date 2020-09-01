@@ -6,6 +6,8 @@ a {
   font-size: 0.8em;
   text-decoration: none;
 }
+
+
 .slides {
   display: flex;
   justify-content: center;
@@ -84,13 +86,10 @@ a {
   left: 0.5rem;
 }
 .image__card__middle > * {
-  padding: 0.5rem;
+  padding: 0.2rem;
   font-size: 10px;
 }
-.image__card__middle a:last-child {
-  position: inherit;
-  left: 5px;
-}
+
 .image__card__middle a {
   border: 2px solid transparent;
   background-color: rgba(0, 0, 0, 0.05);
@@ -101,7 +100,7 @@ a {
 .image__card__bottom {
   position: inherit;
   top: 10%;
-  left: 0.5rem;
+  left: 0.7rem;
   max-width: 200px;
   font-size: smaller;
 }
@@ -115,7 +114,9 @@ a {
     margin-top: -24px; */
   position: absolute;
   height: 100%;
-  background-color: #efeff1;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.05);
+  background-color: #e6e6ea;
+
   width: 700px;
   z-index: 1;
 }

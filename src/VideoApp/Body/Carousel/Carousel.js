@@ -3,6 +3,7 @@ import "./Carousel.css";
 import { connect } from "react-redux";
 import axios from "axios";
 import { datas } from "./carouseldata";
+import _ from "lodash";
 const Carousel = (props) => {
   const iframeRef = useRef();
 
@@ -10,15 +11,62 @@ const Carousel = (props) => {
   const [direction, setDirection] = useState("");
   const [loading, setLoading] = useState(true);
 
+  const [getTwitchLiveStream, setGetTwitchLiveStream] = useState([]);
+
   useEffect(() => {
-    const handleIframe = () => {
-      setLoading(false);
+    const fetchData = async () => {
+      const { data } = await axios.get("http://localhost:5000/api/v1/twitch");
+      setGetTwitchLiveStream(data);
     };
-    iframeRef.current.addEventListener("load", handleIframe);
-    return () => {
-      iframeRef.current.removeEventListener("load", handleIframe);
-    };
+    fetchData();
   }, []);
+
+  const [width, setWidth] = useState([
+    { widthSize: "100%" },
+    { widthSize: "100%" },
+    { widthSize: "1300px" },
+    { widthSize: "100%" },
+    { widthSize: "100%" },
+  ]);
+
+  const determineWidth = (index) => {
+    const num = width[index];
+    // console.log(num.first);
+    return num.widthSize;
+  };
+
+  const [cardDisplay, setCardDisplay] = useState([
+    { display: "none" },
+    { display: "none" },
+    { display: "" },
+    { display: "none" },
+    { display: "none" },
+  ]);
+  const determineCard = (index, showAnimation) => {
+    const num = cardDisplay[index];
+    return num.display;
+  };
+
+  // const determineAuto = (index) => {
+  //   const num = xAuto[index];
+
+  //   return num.autoplay;
+  // };
+  const [autoPlay, setAutoPlay] = useState([
+    { autoplay: "false" },
+    { autoplay: "false" },
+    { autoplay: "true" },
+    { autoplay: "false" },
+    { autoplay: "false" },
+  ]);
+
+  console.log(width);
+  console.log(autoPlay);
+
+  const determineAutoplay = (index, showAnimation) => {
+    const num = autoPlay[index];
+    return num.autoplay;
+  };
   const determineStyle = (index, showAnimation) => {
     const num = xPos[index];
 
@@ -94,6 +142,18 @@ const Carousel = (props) => {
     },
   ]);
   const moveLeft = () => {
+    let autoPlayCopyLeft = autoPlay.slice();
+    autoPlayCopyLeft.unshift(autoPlayCopyLeft.pop());
+    setAutoPlay(autoPlayCopyLeft);
+
+    let cardLeftDisplayCopy = cardDisplay.slice();
+    cardLeftDisplayCopy.unshift(cardLeftDisplayCopy.pop());
+    setCardDisplay(cardLeftDisplayCopy);
+
+    let widthLeftCopy = width.slice();
+    widthLeftCopy.unshift(widthLeftCopy.pop());
+    setWidth(widthLeftCopy);
+
     let xLeftPosition = xPos.slice();
     xLeftPosition.unshift(xLeftPosition.pop());
     setXPos(xLeftPosition);
@@ -101,109 +161,129 @@ const Carousel = (props) => {
   };
 
   const moveRight = () => {
+    let autoPlayCopyRight = autoPlay.slice();
+    autoPlayCopyRight.push(autoPlayCopyRight.shift());
+    setAutoPlay(autoPlayCopyRight);
+
+    let cardRightDisplayCopy = cardDisplay.slice();
+    cardRightDisplayCopy.push(cardRightDisplayCopy.shift());
+    setCardDisplay(cardRightDisplayCopy);
+
+    let widthRightCopy = width.slice();
+    widthRightCopy.push(widthRightCopy.shift());
+    setWidth(widthRightCopy);
+
     let XRightPosition = xPos.slice();
     XRightPosition.push(XRightPosition.shift());
     setXPos(XRightPosition);
     setDirection("right");
   };
-  const [twitchLiveStream, setTwitchLiveStream] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const {
-        data: {
-          data: { data },
-        },
-      } = await axios.get("http://localhost:5000/api/v1/twitch");
-      // console.log(data);
-      setTwitchLiveStream(data);
-    };
-    fetchData();
-  }, []);
-  console.log(
-    twitchLiveStream.map((iframe) => console.log(typeof iframe.user_name))
-  );
+  const hideLoading = () => {
+    setLoading(false);
+  };
 
+  const checkTags = (streams, i) => {
+    if (streams.localization_names.length !== 1) {
+      let a = _.mapKeys(streams.localization_names, "en-us");
+      let b = Object.keys(a);
+      return (
+        <>
+          {b.map((e, i) => {
+            return (
+              <a key={i} style={{ marginLeft: 5 }} href="#">
+                {e}
+              </a>
+            );
+          })}
+        </>
+      );
+    }
+    return (
+      <a style={{ marginLeft: 5 }} href="#">
+        {streams.localization_names[0]["en-us"]}
+      </a>
+    );
+  };
+
+  const checkViewers = (views) => {
+    if (views <= 999) {
+      return <>{`${views} viewers`}</>;
+    } else if (views < 999999) {
+      return (
+        <>{`${
+          Math.sign(views) * (Math.abs(views) / 1000).toFixed(1)
+        }K viewers`}</>
+      );
+    } else if (views <= 9999999) {
+      return (
+        <>{`${
+          Math.sign(views) * (Math.abs(views) / 1000000).toFixed(1)
+        }M viewers`}</>
+      );
+    }
+  };
+  // console.log(xAuto)
   return (
-    <>
+    <React.Fragment className="carousel">
       <button className="btn left" onClick={moveRight}>
         ‹
       </button>
       <button className="btn right" onClick={moveLeft}>
         ›
       </button>
-      <div ref={styleRef} className="slides">
-        {/* {!twitch
-          ? null
-          : twitch.map((res) => {
-              return (
-                <iframe
-                  ref={iframeRef}
-                  // loading="lazy"
-                  // rel="preload"
-                  className="iframe"
-                  width="1527.24"
-                  height="300"
-                  src={res.embed_url}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              );
-            })} */}
 
-        {datas.map((slide, i) => {
+      <div ref={styleRef} className="slides">
+        {getTwitchLiveStream.map((streams, i) => {
           const showAnimation = direction === "right" || direction === "left";
           const position = "animate absolute image";
           const imgStyle = determineStyle(i, showAnimation);
+
+          const AutoStyle = determineAutoplay(i);
+
+          const AutoCard = determineCard(i);
+          const AutoWidth = determineWidth(i);
           return (
             <div style={imgStyle} key={i} className="slide">
               <iframe
-                ref={iframeRef}
+                // autoplay={`${AutoStyle}`}
+                onLoad={hideLoading}
+                // ref={iframeRef}
                 // loading="lazy"
                 // rel="preload"
                 className="iframe"
-                width="1527.24"
-                height="300"
-                // src={slide.iFrameSrc}
-                // src={`https://player.twitch.tv/?channel=${twitchLiveStream.map(
-                //   (iframe) => iframe.user_name
-                // )}&muted=true&parent=localhost`}
+                // width="1527.3px"
+
+                width={`${AutoWidth}`}
+                height="300px"
+                src={`https://player.twitch.tv/?channel=${streams.user_name}&muted=true&autoplay=${AutoStyle}&parent=localhost`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
               {loading ? <div className="loading"></div> : null}
-              <div className="image__card">
+              <div style={{ display: `${AutoCard}` }} className="image__card">
                 <div className="image__card__upper">
                   <img
-                    src={slide.streamJPG}
+                    src={streams.profile_image_url}
                     alt="streamJPG"
                     className="image__card__upper__image"
                   />
                   <div className="image__card__upper__info">
-                    <p>{slide.streamTitle}</p>
-                    <a href="#">{slide.genere}</a>
-                    <p>{slide.viewers}</p>
+                    <p>{streams.user_name}</p>
+                    <a href="#">{streams.game_name}</a>
+                    <p>{checkViewers(streams.viewer_count)}</p>
                   </div>
                 </div>
 
-                <div className="image__card__middle">
-                  <a href="#">{slide.tags[0]}</a>
-                  <a
-                    style={{ display: `${!slide.tags[1] ? "none" : ""}` }}
-                    href="#"
-                  >
-                    {slide.tags[1]}
-                  </a>
-                </div>
-                <div className="image__card__bottom">{slide.description} </div>
+                <div className="image__card__middle">{checkTags(streams)}</div>
+                <div className="image__card__bottom">{streams.description}</div>
               </div>
             </div>
           );
         })}
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

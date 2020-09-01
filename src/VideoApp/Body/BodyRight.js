@@ -4,6 +4,8 @@ import VideoList from "./VideoList/VideoList";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Carousel from "./Carousel/Carousel";
+
+import CarouselTwitch from "./Carousel/CarouselTwitch";
 const Body = (props) => {
   const renderCreate = () => {
     if (props.isSignedIn) {
@@ -20,7 +22,29 @@ const Body = (props) => {
       {/* <h2>Stream Lists</h2> */}
 
       <Carousel />
-
+      {/* <CarouselTwitch /> */}
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
+      <p>asdf</p>
       {renderCreate()}
       <VideoList onVideoSelect={props.onVideoSelect} streams={props.streams} />
     </div>

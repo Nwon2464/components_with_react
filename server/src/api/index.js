@@ -41,8 +41,19 @@ router.get("/twitch", async (req, res) => {
       );
       const newStreamsData = getStreamsRequest.data.data;
       // --------------------
-      let b = newStreamsData.slice();
+      let allStreams = newStreamsData.slice();
+      // console.log(allStreams);
       // console.log(b)
+      // const aaa = await axios.get(
+      //   "https://api.twitch.tv/helix/games/top",
+      //   options
+      // );
+      // console.log(aaa.data.data);
+
+      // "id": "39491526206",
+      // "user_id": "26490481",
+      // "user_name": "summit1g",
+      // "game_id": "65632",
 
       // --------------------
       let URL1 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[0].user_id}`;
@@ -61,6 +72,11 @@ router.get("/twitch", async (req, res) => {
       let UserTags3 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[2].user_id}`;
       let UserTags4 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[3].user_id}`;
       let UserTags5 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[4].user_id}`;
+      // let UserTags6 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[5].user_id}`;
+      // let UserTags7 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[6].user_id}`;
+      // let UserTags8 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[7].user_id}`;
+      // let UserTags9 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[8].user_id}`;
+      // let UserTags10 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[9].user_id}`;
 
       const promise1 = axios.get(URL1, options);
       const promise2 = axios.get(URL2, options);
@@ -78,6 +94,12 @@ router.get("/twitch", async (req, res) => {
       const promiseTag3 = axios.get(UserTags3, options);
       const promiseTag4 = axios.get(UserTags4, options);
       const promiseTag5 = axios.get(UserTags5, options);
+      // const promiseTag6 = axios.get(UserTags6, options);
+      // const promiseTag7 = axios.get(UserTags7, options);
+      // const promiseTag8 = axios.get(UserTags8, options);
+      // const promiseTag9 = axios.get(UserTags9, options);
+      // const promiseTag10 = axios.get(UserTags10, options);
+
       // await axios
       //   .all([promiseTag1, promiseTag2, promiseTag3, promiseTag4, promiseTag5])
       //   .then(
@@ -115,12 +137,17 @@ router.get("/twitch", async (req, res) => {
           promiseTag3,
           promiseTag4,
           promiseTag5,
+          // promiseTag7,
+          // promiseTag8,
+          // promiseTag9,
+          // promiseTag10,
         ])
         .then(
-          axios.spread(async (...response) => {
+          axios.spread((...response) => {
             let gameName = [];
             let imageUrl = [];
             let tags = [];
+
             response.map((data, i) => {
               tags.push({
                 tag: data.data.data.map((e) => e.tag_id),
@@ -130,33 +157,40 @@ router.get("/twitch", async (req, res) => {
               });
               data.data.data.map((res) => {
                 if (res.hasOwnProperty("profile_image_url")) {
+                  // console.log(res);
                   imageUrl.push({
+                    description: res["description"],
                     profile_image_url: res["profile_image_url"],
                   });
                 }
               });
               data.data.data.map((res) => {
                 if (res.hasOwnProperty("game_id")) {
-                  gameName.push({ game_id: res.game_name });
+                  // console.log(res);
+                  gameName.push({ game_name: res.game_name });
                 }
               });
             });
-            // console.log(all);
-            // for (let i = 0; i < response.length; i++) {
-            // gameName[i] = response[i].data.data;
-            // let objects = response[i].data.data;
-            // }
-            // console.log(gameName);
-            // console.log(tags);
             const filterTags = tags.filter((e, i) => e.tag[0] !== undefined);
-            // console.log(filterTags);
-            res.json({
-              message: "API SUCCEED! - 👋🌎🌍🌏",
-              getStreams: getStreamsRequest.data.data,
-              getGameName: gameName,
-              getUsers: imageUrl,
-              getTags: filterTags,
+
+            _.merge(allStreams, filterTags);
+            _.merge(allStreams, imageUrl);
+            _.merge(allStreams, gameName);
+
+            allStreams.map((e) => {
+              if (e.localization_names.length !== 0) {
+                e.localization_names.map((e) => {
+                  console.log(e["en-us"]);
+                });
+              }
             });
+            res.send(
+              // getStreams: getStreamsRequest.data.data,
+              // getGameName: gameName,
+              // getUsers: imageUrl,
+              // getTags: filterTags,
+              allStreams
+            );
           })
         );
     }
