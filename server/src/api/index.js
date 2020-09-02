@@ -198,6 +198,40 @@ router.get("/twitch", async (req, res) => {
     console.log(error);
   }
 });
+
+router.get("/twitch/topgames", async (req, res) => {
+  try {
+    const response = await axios.post(
+      `https://id.twitch.tv/oauth2/token?client_id=${client_id}&client_secret=${client_secret}&grant_type=client_credentials`
+    );
+    const token = response.data.access_token;
+    const options = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "client-id": client_id,
+      },
+    };
+
+    if (token) {
+      const getStreamsRequest = await axios.get(
+        "https://api.twitch.tv/helix/games/top?first=8",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "client-id": client_id,
+          },
+        }
+      );
+
+      const { data } = getStreamsRequest.data;
+    
+      res.json({ data });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 router.get("/twitch/streams", async (req, res) => {
   try {
     const response = await axios.post(

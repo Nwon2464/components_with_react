@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import CarouselTop from "./Carousel/CarouselTop";
 import CarouselMiddle from "./Carousel/CarouselMiddle";
+
 const Body = (props) => {
   const renderCreate = () => {
     if (props.isSignedIn) {
@@ -22,6 +23,7 @@ const Body = (props) => {
 
       {/* <CarouselTop /> */}
       <CarouselMiddle />
+     
       {/* {renderCreate()} */}
       {/* <VideoList onVideoSelect={props.onVideoSelect} streams={props.streams} /> */}
     </div>

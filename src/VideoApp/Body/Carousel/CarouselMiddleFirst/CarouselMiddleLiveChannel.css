@@ -57,3 +57,42 @@ h5 {
   bottom: 0.5em;
   color: #53535f;
 }
+
+.custom {
+  width: 100%;
+  text-align: center;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+  border-bottom: 1px solid rgba(191, 191, 191, 1);
+}
+.custom > span {
+  background: #f9f9f9;
+  padding: 0 10px;
+}
+
+.showMore__button {
+  position: relative;
+  top: 8px;
+
+  color: #00b5ad;
+}
+.down__icon {
+  position: relative !important;
+  top: 5px !important;
+}
+.showMore {
+  color: #00b5ad;
+}
+.showMore:hover {
+  color: black;
+}
+
+.loading {
+  position: absolute;
+  height: 100%;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.05);
+  background-color: #e6e6ea;
+
+  width: 700px;
+  z-index: 1;
+}
