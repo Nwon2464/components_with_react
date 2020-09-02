@@ -1,37 +1,12 @@
 import React from "react";
 // import "./Carousel.css";
+import CarouselMiddleCategory from "./CarouselMiddleFirst/CarouselMiddleCategory";
+import CarouselMiddleLiveChannel from "./CarouselMiddleFirst/CarouselMiddleLiveChannel";
 const CarouseMiddle = (props) => {
-  //   const { description, profile_image_url } = props.getTwitchUsers;
-  //   console.log(props.getTwitchUsers);
   return (
-    <div>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
+    <div className="game__card">
+      <CarouselMiddleLiveChannel />
+      {/* <CarouselMiddleCategory /> */}
     </div>
   );
 };

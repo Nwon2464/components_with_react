@@ -1,0 +1,59 @@
+img {
+  max-width: 100%;
+}
+.channel__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+}
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.channel__card {
+  border: 1px solid red;
+  width: 340px;
+  margin-bottom: 1.3rem;
+  margin-right: 0.5rem;
+}
+.channel__title {
+  font-size: 1.1rem;
+}
+.channel__all__info {
+  display: flex;
+  height: 8.5rem;
+}
+.channel__info {
+  margin-left: 0.56rem;
+}
+
+.channel__title {
+  margin-bottom: -20px;
+  font-size: 14px;
+}
+.channel__name {
+  position: relative;
+  /* margin-bottom: 0px; */
+  bottom: 2.5em;
+}
+
+.channel__tag {
+  position: relative;
+  bottom: 2.5rem;
+  right: 5px;
+  background-color: lightgray;
+  text-align: center;
+  font-size: 0.9rem;
+  /* display: flex; */
+  padding: 0.1rem 0.6rem;
+  border-radius: 12px;
+}
+
+.channel__info > h4,
+h5 {
+  font-size: 12px;
+  position: relative;
+  bottom: 0.5em;
+  color: #53535f;
+}

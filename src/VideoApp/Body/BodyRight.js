@@ -20,11 +20,10 @@ const Body = (props) => {
     <div className="body__right">
       {/* <h2>Stream Lists</h2> */}
 
-      <CarouselTop />
-      {/* <CarouselTwitch /> */}
+      {/* <CarouselTop /> */}
       <CarouselMiddle />
-      {renderCreate()}
-      <VideoList onVideoSelect={props.onVideoSelect} streams={props.streams} />
+      {/* {renderCreate()} */}
+      {/* <VideoList onVideoSelect={props.onVideoSelect} streams={props.streams} /> */}
     </div>
   );
 };

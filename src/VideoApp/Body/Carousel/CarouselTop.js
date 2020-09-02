@@ -183,6 +183,7 @@ const CarouselTop = (props) => {
     setLoading(false);
   };
 
+
   const checkTags = (streams, i) => {
     if (streams.localization_names.length !== 1) {
       let a = _.mapKeys(streams.localization_names, "en-us");
@@ -251,7 +252,7 @@ const CarouselTop = (props) => {
                 // ref={iframeRef}
                 // loading="lazy"
                 // rel="preload"
-                className="iframe"
+                // className="loading live"
                 // width="1527.3px"
 
                 width={`${AutoWidth}`}
@@ -262,7 +263,9 @@ const CarouselTop = (props) => {
                 allowFullScreen
               ></iframe>
               {loading ? <div className="loading"></div> : null}
-              <div style={{ display: `${AutoCard}` }} className="image__card">
+              <div 
+              style={{ display: `${AutoCard}` }} 
+              className="image__card">
                 <div className="image__card__upper">
                   <img
                     src={streams.profile_image_url}
