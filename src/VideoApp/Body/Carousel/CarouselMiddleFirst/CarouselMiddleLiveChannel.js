@@ -29,13 +29,13 @@ const CarouselMiddleLiveChannel = () => {
 
   useEffect(() => {
     const fecthLive = async () => {
-      const { data } = await axios.get("http://localhost:5000/api/v1/twitch");
+      const { data } = await axios.get("http://localhost:5000/api/v1/twitch/streams");
       // console.log(data);
       let dataArray = data;
       dataArray.map((game) => {
         let newUrl = game.thumbnail_url
-          .replace("{width}", "340")
-          .replace("{height}", "200");
+          .replace("{width}", "440")
+          .replace("{height}", "248");
         game.thumbnail_url = newUrl;
       });
       // console.log(finalArray);
@@ -54,9 +54,9 @@ const CarouselMiddleLiveChannel = () => {
           {b.map((e, i) => {
             return (
               <a
-                className="channel__tag"
+                className="channel__tag__anchor"
                 key={i}
-                style={{ marginLeft: 5 }}
+                style={{ marginLeft: `calc(5px * ${i})` }}
                 href="#"
               >
                 {e}
@@ -67,7 +67,7 @@ const CarouselMiddleLiveChannel = () => {
       );
     }
     return (
-      <a className="channel__tag" style={{ marginLeft: 5 }} href="#">
+      <a className="channel__tag__anchor" style={{ marginLeft: 5 }} href="#">
         {streams.localization_names[0]["en-us"]}
       </a>
     );
@@ -76,29 +76,81 @@ const CarouselMiddleLiveChannel = () => {
   return (
     <div className="channel">
       <h3>Live Channels we think you'll like</h3>
-      <div className="videos">
-        {liveChannel.map((e, i) => {
-          return (
-            <>
-              <div className="channel__card">
-                <img className="channel__thumbnail" src={e.thumbnail_url} />
 
-                <div className="channel__all__info">
-                  <img className="channel__icon" src={e.profile_image_url} />
-                  <div className="channel__info">
-                    <h3 className="channel__title">{e.title}</h3>
-                    <h4 className="">{e.user_name}</h4>
-                    <h5 className="channel__name" href="#">
-                      {e.game_name}
-                    </h5>
-                    {checkTags(e)}{" "}
+      <div className="videos">
+        <div className="videos__1">
+          {liveChannel.map((e, i) => {
+            return (
+              <>
+                <div className="chan">
+                  <div className="chanchan">
+                    <div className="channel__card">
+                      <article className="ch">
+                        <div className="channel__all__info">
+                          <div className="c">
+                            <div className="channel__info">
+                              <div className="channel__title">
+                                <div className="channel__font">
+                                  <div className="channel__font_1">
+                                    <h3 className="channel__font__title">
+                                      {e.title}
+                                    </h3>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="channel__user">
+                                <div>
+                                  <h4 className="channel__user__name">
+                                    {e.user_name}
+                                  </h4>
+                                </div>
+                                <div>
+                                  <h5 className="channel__game__name" href="#">
+                                    {e.game_name}
+                                  </h5>
+                                </div>
+                              </div>
+                              <div className="channel__tag">
+                                <div className="channel__tag__1">
+                                  <div className="channel__tag__2">
+                                    <div className="channel__tag__3">
+                                      {checkTags(e)}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="channel__icon">
+                              <img
+                                className="channel__icon__1"
+                                src={e.profile_image_url}
+                              />
+                            </div>
+                            <div className="channel__down">
+                              <MoreVertIcon />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="thumb">
+                          <img
+                            className="channel__thumbnail"
+                            src={e.thumbnail_url}
+                          />
+                        </div>
+                      </article>
+                    </div>
                   </div>
-                  <MoreVertIcon />
                 </div>
-              </div>
-            </>
-          );
-        })}
+              </>
+            );
+          })}
+        </div>
+      </div>
+      <div className="other">
+        <div className="other__">
+          <div className="other___">a</div>
+        </div>
       </div>
       <h2 className="custom">
         <span className="showMore">

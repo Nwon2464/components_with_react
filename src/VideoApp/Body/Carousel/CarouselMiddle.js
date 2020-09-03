@@ -5,8 +5,8 @@ import CarouselMiddleLiveChannel from "./CarouselMiddleFirst/CarouselMiddleLiveC
 const CarouseMiddle = (props) => {
   return (
     <div className="game__card">
-      {/* <CarouselMiddleLiveChannel /> */}
-      <CarouselMiddleCategory />
+      <CarouselMiddleLiveChannel />
+      {/* <CarouselMiddleCategory /> */}
     </div>
   );
 };

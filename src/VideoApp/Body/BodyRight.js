@@ -21,7 +21,7 @@ const Body = (props) => {
     <div className="body__right">
       {/* <h2>Stream Lists</h2> */}
 
-      {/* <CarouselTop /> */}
+      <CarouselTop />
       <CarouselMiddle />
      
       {/* {renderCreate()} */}

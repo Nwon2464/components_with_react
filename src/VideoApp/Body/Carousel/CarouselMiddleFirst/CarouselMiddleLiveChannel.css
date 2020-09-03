@@ -1,37 +1,96 @@
+.channel {
+  border: 3px solid red;
+  margin: 5px auto;
+  max-width: 200rem;
+}
 img {
   max-width: 100%;
 }
-.channel__icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 25px;
-}
 .videos {
+  /* display: flex;
+  margin-left: -0.5rem;
+  min-width: 100%;
+  flex-wrap: nowrap; */
+}
+
+.videos__1 {
   display: flex;
+  min-width: 100%;
   flex-wrap: wrap;
+}
+.chan {
+  flex: 1 0 auto;
+
+  padding: 0 0.2rem;
+  width: 17rem;
+  max-width: 25%;
+}
+.chanchan {
+  height: 100%;
+  border: 1px solid black;
+}
+
+.c {
+  flex-wrap: nowrap;
+  display: flex;
+}
+
+.ch {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
 }
 
 .channel__card {
   border: 1px solid red;
-  width: 340px;
-  margin-bottom: 1.3rem;
-  margin-right: 0.5rem;
+  padding-bottom: 2rem;
 }
 .channel__title {
-  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
 }
 .channel__all__info {
-  display: flex;
-  height: 8.5rem;
+  order: 2;
+
+  width: 100%;
+  margin-top: 0.3rem;
 }
 .channel__info {
-  margin-left: 0.56rem;
+  order: 2;
+  flex-shrink: 1;
+  flex-grow: 1;
+  min-width: 0;
+  width: 100%;
+}
+.channel__font {
+  color: #1f1f23;
+}
+.channel__font_1 {
+  display: flex;
+  align-items: flex-start;
+}
+.channel__font__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.1rem;
+  white-space: nowrap;
 }
 
-.channel__title {
-  margin-bottom: -20px;
-  font-size: 14px;
+.channel__user {
+  margin-bottom: 0.3rem;
 }
+.channel__user__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #53535f;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+.channel__game__name {
+  color: #53535f;
+  font-size: 0.8rem;
+}
+
 .channel__name {
   position: relative;
   /* margin-bottom: 0px; */
@@ -39,23 +98,64 @@ img {
 }
 
 .channel__tag {
-  position: relative;
+  flex-shrink: 1;
+  flex-grow: 1;
+  width: 100%;
+
+  /* position: relative;
   bottom: 2.5rem;
   right: 5px;
   background-color: lightgray;
   text-align: center;
   font-size: 0.9rem;
-  /* display: flex; */
   padding: 0.1rem 0.6rem;
-  border-radius: 12px;
+  border-radius: 12px;  */
+}
+.channel__tag__1 {
+  margin-top: 0.3rem;
 }
 
+.channel__tag__2 {
+  width: 100%;
+  display: inline-block;
+}
+.channel__tag__3 {
+  vertical-align: middle;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+.channel__tag__anchor {
+  background-color: lightgrey;
+  padding: 0.15rem 0.8rem;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.channel__icon {
+  order: 1;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.channel__icon__1 {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+}
+.channel__down {
+  order: 3;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.thumb {
+  order: 1;
+}
 .channel__info > h4,
 h5 {
-  font-size: 12px;
+  /* font-size: 12px;
   position: relative;
   bottom: 0.5em;
-  color: #53535f;
+  color: #53535f; */
 }
 
 .custom {
