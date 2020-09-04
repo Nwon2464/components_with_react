@@ -6,7 +6,8 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  /* background-color: white; */
+
+  background: #fff;
 }
 .header__left {
   display: flex;
@@ -55,14 +56,6 @@
   color: whitesmoke !important;
   background-color: #00b5ad !important;
 }
-
-
-
-
-
-
-
-
 
 .dropdown__auth {
   position: absolute;

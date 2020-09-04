@@ -24,7 +24,7 @@ const Body = (props) => {
 
       {/* <CarouselTop /> */}
       <CarouselMiddle />
-      <CarouselMiddleCategory />
+      {/* <CarouselMiddleCategory /> */}
 
       {/* {renderCreate()} */}
       {/* <VideoList onVideoSelect={props.onVideoSelect} streams={props.streams} /> */}

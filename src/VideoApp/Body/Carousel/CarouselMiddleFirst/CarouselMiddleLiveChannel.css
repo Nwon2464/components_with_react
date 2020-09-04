@@ -5,6 +5,9 @@
 .app__tower__padding__gutter {
   padding: 0 0.2rem !important;
 }
+.app__padding{
+  padding:0 0.5rem !important
+}
 .app__margin__bottom {
   margin-bottom: 0.3rem !important;
 }
@@ -22,6 +25,18 @@
 .app__relative {
   position: relative !important;
 }
+.app__absolute {
+  position: absolute !important;
+}
+.app__left__0 {
+  left: 0 !important;
+}
+.app__top__0 {
+  top: 0 !important;
+}
+.app__bottom__0 {
+  bottom: 0 !important;
+}
 .app__flex__column {
   flex-direction: column !important;
 }
@@ -35,7 +50,7 @@
 }
 .app__tower__300 {
   flex: 1 0 auto;
-  width: 23rem;
+  width: 20rem;
   max-width: 50%;
 }
 .app__card__height {
@@ -68,16 +83,30 @@
 .app__width {
   width: 100% !important;
 }
+.app__margin {
+  margin: 0.5rem !important;
+}
 /* app__margin__top app__flex__shrink__1 app__flex__grow__1 app__ellipsis*/
-
+.app__live__indicator {
+  background-color: #e91916 !important;
+  color: #fff !important;
+}
+.app__view__indicator{
+  background-color:rgba(0,0,0,0.6) !important;
+  color:#fff !important;
+}
 .app__color {
   color: #1f1f23;
 }
-
+.app__border__radius{
+  border-radius:25px !important;
+}
 .app__font__weight {
   font-weight: bold !important;
 }
-
+.app__uppercase {
+  text-transform: uppercase !important;
+}
 .card__maxWidth__margin {
   border: 3px solid red;
   max-width: 200rem;
@@ -220,7 +249,7 @@ img {
   width: 100%;
   text-align: center;
   line-height: 0.1em;
-  margin: 10px 0 20px;
+  margin: 20px 0 20px;
   border-bottom: 1px solid rgba(191, 191, 191, 1);
 }
 .custom > span {
@@ -230,7 +259,7 @@ img {
 
 .showMore__button {
   position: relative;
-  top: 8px;
+  top: 5px;
 
   color: #00b5ad;
 }

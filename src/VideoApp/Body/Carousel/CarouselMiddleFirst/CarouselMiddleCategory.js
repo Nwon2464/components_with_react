@@ -46,6 +46,11 @@ const CarouselMiddleCategory = () => {
   console.log(topGames);
   return (
     <div className="game__category">
+      <h3>
+        <strong style={{ color: "#00b5ad" }}>Categories</strong> we think you’ll
+        like
+      </h3>
+
       <div className="app__tower__gutter app__flex__tower app__flex__nowrap">
         {topGames.map((e, i) => {
           return (
@@ -68,6 +73,7 @@ const CarouselMiddleCategory = () => {
           );
         })}
       </div>
+      <div className="custom"></div>
     </div>
   );
 };

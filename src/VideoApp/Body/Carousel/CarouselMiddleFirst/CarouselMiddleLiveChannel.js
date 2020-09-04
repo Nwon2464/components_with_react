@@ -32,7 +32,7 @@ const CarouselMiddleLiveChannel = () => {
       const { data } = await axios.get(
         "http://localhost:5000/api/v1/twitch/streams"
       );
-      // console.log(data);
+      console.log(data);
       let dataArray = data;
       dataArray.map((game) => {
         let newUrl = game.thumbnail_url
@@ -47,6 +47,25 @@ const CarouselMiddleLiveChannel = () => {
     fecthLive();
   }, []);
   console.log(liveChannel);
+
+  const checkViewers = (views) => {
+    if (views <= 999) {
+      return <>{`${views} viewers`}</>;
+    } else if (views < 999999) {
+      return (
+        <>{`${
+          Math.sign(views) * (Math.abs(views) / 1000).toFixed(1)
+        }K viewers`}</>
+      );
+    } else if (views <= 9999999) {
+      return (
+        <>{`${
+          Math.sign(views) * (Math.abs(views) / 1000000).toFixed(1)
+        }M viewers`}</>
+      );
+    }
+  };
+
   const checkTags = (streams, i) => {
     if (streams.localization_names.length !== 1) {
       let a = _.mapKeys(streams.localization_names, "en-us");
@@ -79,14 +98,15 @@ const CarouselMiddleLiveChannel = () => {
     <div className="card__maxWidth__margin app__tower__gutter">
       <h3>Live Channels we think you'll like</h3>
 
-      <div className="videos">
+      <div className="app__relative">
         <div className="card__display__flex__wrap">
           {liveChannel.map((e, i) => {
+            console.log(e);
             return (
               <>
                 <div className="app__tower__300 app__tower__padding__gutter">
                   <div className="app__card__height">
-                    <div className="app__card__padding_bottom">
+                    <div className="app__card__padding_bottom app__card__height">
                       <article className="card__display__flex__direction">
                         <div className="app__width app__order__2 app__margin__top">
                           <div className="app__flex__nowrap app__flex">
@@ -133,10 +153,26 @@ const CarouselMiddleLiveChannel = () => {
                         </div>
 
                         <div className="app__order__1">
-                          <img
-                            className="channel__thumbnail"
-                            src={e.thumbnail_url}
-                          />
+                          <div className="app__relative">
+                            <div>
+                              <img
+                                className="channel__thumbnail"
+                                src={e.thumbnail_url}
+                              />
+                            </div>
+                            <div className="app__absolute app__top__0 app__left__0 app__card__height app__width">
+                              <div className="app__absolute app__top__0 app__left__0 app__margin">
+                                <p className="app__uppercase app__live__indicator app__font__weight app__border__radius app__padding">
+                                  {e.type}
+                                </p>
+                              </div>
+                              <div className="app__absolute app__bottom__0 app__left__0 app__margin">
+                                <p className="app__view__indicator app__padding app__margin__bottom app__border__radius">
+                                  {checkViewers(e.viewer_count)}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </article>
                     </div>
@@ -147,15 +183,15 @@ const CarouselMiddleLiveChannel = () => {
           })}
         </div>
       </div>
-      <h2 className="custom">
-        <span className="showMore">
+      <div className="custom">
+        <span onClick={showClick} className="showMore">
           <a className="showMore__button" href="#">
             Show more
             <ExpandMoreOutlinedIcon className="down__icon" />
           </a>
         </span>
-      </h2>
-
+      </div>
+      {showMore && <h1>Hi</h1>}
       <div className="other">
         <div className="other__">
           <div className="other___">a</div>
