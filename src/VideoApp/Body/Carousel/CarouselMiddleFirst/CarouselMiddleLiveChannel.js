@@ -29,7 +29,9 @@ const CarouselMiddleLiveChannel = () => {
 
   useEffect(() => {
     const fecthLive = async () => {
-      const { data } = await axios.get("http://localhost:5000/api/v1/twitch/streams");
+      const { data } = await axios.get(
+        "http://localhost:5000/api/v1/twitch/streams"
+      );
       // console.log(data);
       let dataArray = data;
       dataArray.map((game) => {
@@ -44,7 +46,7 @@ const CarouselMiddleLiveChannel = () => {
     };
     fecthLive();
   }, []);
-
+  console.log(liveChannel);
   const checkTags = (streams, i) => {
     if (streams.localization_names.length !== 1) {
       let a = _.mapKeys(streams.localization_names, "en-us");
@@ -56,7 +58,7 @@ const CarouselMiddleLiveChannel = () => {
               <a
                 className="channel__tag__anchor"
                 key={i}
-                style={{ marginLeft: `calc(5px * ${i})` }}
+                style={{ marginLeft: 2, maxWidth: 70 }}
                 href="#"
               >
                 {e}
@@ -67,35 +69,33 @@ const CarouselMiddleLiveChannel = () => {
       );
     }
     return (
-      <a className="channel__tag__anchor" style={{ marginLeft: 5 }} href="#">
+      <a className="channel__tag__anchor" style={{ marginLeft: 2 }} href="#">
         {streams.localization_names[0]["en-us"]}
       </a>
     );
   };
 
   return (
-    <div className="channel">
+    <div className="card__maxWidth__margin app__tower__gutter">
       <h3>Live Channels we think you'll like</h3>
 
       <div className="videos">
-        <div className="videos__1">
+        <div className="card__display__flex__wrap">
           {liveChannel.map((e, i) => {
             return (
               <>
-                <div className="chan">
-                  <div className="chanchan">
-                    <div className="channel__card">
-                      <article className="ch">
-                        <div className="channel__all__info">
-                          <div className="c">
-                            <div className="channel__info">
-                              <div className="channel__title">
-                                <div className="channel__font">
-                                  <div className="channel__font_1">
-                                    <h3 className="channel__font__title">
-                                      {e.title}
-                                    </h3>
-                                  </div>
+                <div className="app__tower__300 app__tower__padding__gutter">
+                  <div className="app__card__height">
+                    <div className="app__card__padding_bottom">
+                      <article className="card__display__flex__direction">
+                        <div className="app__width app__order__2 app__margin__top">
+                          <div className="app__flex__nowrap app__flex">
+                            <div className="app__min__width__0 app__order__2 app__flex__shrink__1 app__flex__grow__1 app__width">
+                              <div className="app__margin__bottom">
+                                <div className="channel__font_1">
+                                  <h3 className="app__ellipsis app__font__weight">
+                                    {e.title}
+                                  </h3>
                                 </div>
                               </div>
                               <div className="channel__user">
@@ -132,7 +132,7 @@ const CarouselMiddleLiveChannel = () => {
                           </div>
                         </div>
 
-                        <div className="thumb">
+                        <div className="app__order__1">
                           <img
                             className="channel__thumbnail"
                             src={e.thumbnail_url}
@@ -147,11 +147,6 @@ const CarouselMiddleLiveChannel = () => {
           })}
         </div>
       </div>
-      <div className="other">
-        <div className="other__">
-          <div className="other___">a</div>
-        </div>
-      </div>
       <h2 className="custom">
         <span className="showMore">
           <a className="showMore__button" href="#">
@@ -160,7 +155,12 @@ const CarouselMiddleLiveChannel = () => {
           </a>
         </span>
       </h2>
-      <button></button>
+
+      <div className="other">
+        <div className="other__">
+          <div className="other___">a</div>
+        </div>
+      </div>
     </div>
   );
 };

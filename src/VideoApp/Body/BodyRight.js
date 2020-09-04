@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import CarouselTop from "./Carousel/CarouselTop";
 import CarouselMiddle from "./Carousel/CarouselMiddle";
+import CarouselMiddleCategory from "./Carousel/CarouselMiddleFirst/CarouselMiddleCategory";
 
 const Body = (props) => {
   const renderCreate = () => {
@@ -21,9 +22,10 @@ const Body = (props) => {
     <div className="body__right">
       {/* <h2>Stream Lists</h2> */}
 
-      <CarouselTop />
+      {/* <CarouselTop /> */}
       <CarouselMiddle />
-     
+      <CarouselMiddleCategory />
+
       {/* {renderCreate()} */}
       {/* <VideoList onVideoSelect={props.onVideoSelect} streams={props.streams} /> */}
     </div>

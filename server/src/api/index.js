@@ -61,13 +61,13 @@ router.get("/twitch", async (req, res) => {
       let URL3 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[2].user_id}`;
       let URL4 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[3].user_id}`;
       let URL5 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[4].user_id}`;
-    
+
       let UserURL1 = `https://api.twitch.tv/helix/users?id=${newStreamsData[0].user_id}`;
       let UserURL2 = `https://api.twitch.tv/helix/users?id=${newStreamsData[1].user_id}`;
       let UserURL3 = `https://api.twitch.tv/helix/users?id=${newStreamsData[2].user_id}`;
       let UserURL4 = `https://api.twitch.tv/helix/users?id=${newStreamsData[3].user_id}`;
       let UserURL5 = `https://api.twitch.tv/helix/users?id=${newStreamsData[4].user_id}`;
-    
+
       let UserTags1 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[0].user_id}`;
       let UserTags2 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[1].user_id}`;
       let UserTags3 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[2].user_id}`;
@@ -83,13 +83,11 @@ router.get("/twitch", async (req, res) => {
       const promise4 = axios.get(URL4, options);
       const promise5 = axios.get(URL5, options);
 
-
       const promiseUser1 = axios.get(UserURL1, options);
       const promiseUser2 = axios.get(UserURL2, options);
       const promiseUser3 = axios.get(UserURL3, options);
       const promiseUser4 = axios.get(UserURL4, options);
       const promiseUser5 = axios.get(UserURL5, options);
-
 
       const promiseTag1 = axios.get(UserTags1, options);
       const promiseTag2 = axios.get(UserTags2, options);
@@ -231,9 +229,54 @@ router.get("/twitch/topgames", async (req, res) => {
         }
       );
 
-      const { data } = getStreamsRequest.data;
+      const newStreamsData = getStreamsRequest.data.data;
+      // --------------------
 
-      res.json({ data });
+      let allStreams = newStreamsData.slice();
+      let URL1 = `https://api.twitch.tv/helix/streams?game_id=${newStreamsData[0].id}`;
+      let URL2 = `https://api.twitch.tv/helix/streams?game_id=${newStreamsData[1].id}`;
+      let URL3 = `https://api.twitch.tv/helix/streams?game_id=${newStreamsData[2].id}`;
+      let URL4 = `https://api.twitch.tv/helix/streams?game_id=${newStreamsData[3].id}`;
+      let URL5 = `https://api.twitch.tv/helix/streams?game_id=${newStreamsData[4].id}`;
+      let URL6 = `https://api.twitch.tv/helix/streams?game_id=${newStreamsData[5].id}`;
+      let URL7 = `https://api.twitch.tv/helix/streams?game_id=${newStreamsData[6].id}`;
+      let URL8 = `https://api.twitch.tv/helix/streams?game_id=${newStreamsData[7].id}`;
+
+      const promise1 = axios.get(URL1, options);
+      const promise2 = axios.get(URL2, options);
+      const promise3 = axios.get(URL3, options);
+      const promise4 = axios.get(URL4, options);
+      const promise5 = axios.get(URL5, options);
+      const promise6 = axios.get(URL6, options);
+      const promise7 = axios.get(URL7, options);
+      const promise8 = axios.get(URL8, options);
+
+      await axios
+        .all([
+          promise1,
+          promise2,
+          promise3,
+          promise4,
+          promise5,
+          promise6,
+          promise7,
+          promise8,
+        ])
+        .then(
+          axios.spread((...response) => {
+            let gameViewers = [];
+            response.map((data, i) => {
+              gameViewers.push({
+                gameViewers: data.data.data
+                  .map((e) => e.viewer_count)
+                  .reduce((acc, cur) => acc + cur, 0),
+              });
+            });
+            _.merge(allStreams, gameViewers);
+
+            res.send(allStreams);
+          })
+        );
     }
   } catch (error) {
     console.log(error);
@@ -266,20 +309,16 @@ router.get("/twitch/streams", async (req, res) => {
 
       // const { data } = getStreamsRequest.data;
 
-
-
-      
       const newStreamsData = getStreamsRequest.data.data;
       // --------------------
       let allStreams = newStreamsData.slice();
-  
+      // console.log(allStreams);
+
       let URL1 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[0].user_id}`;
       let URL2 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[1].user_id}`;
       let URL3 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[2].user_id}`;
       let URL4 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[3].user_id}`;
       let URL5 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[4].user_id}`;
-    
-
 
       let URL6 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[5].user_id}`;
       let URL7 = `https://api.twitch.tv/helix/channels?broadcaster_id=${newStreamsData[6].user_id}`;
@@ -293,7 +332,7 @@ router.get("/twitch/streams", async (req, res) => {
       let UserURL6 = `https://api.twitch.tv/helix/users?id=${newStreamsData[5].user_id}`;
       let UserURL7 = `https://api.twitch.tv/helix/users?id=${newStreamsData[6].user_id}`;
       let UserURL8 = `https://api.twitch.tv/helix/users?id=${newStreamsData[7].user_id}`;
-    
+
       let UserTags1 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[0].user_id}`;
       let UserTags2 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[1].user_id}`;
       let UserTags3 = `https://api.twitch.tv/helix/streams/tags?broadcaster_id=${newStreamsData[2].user_id}`;
@@ -313,7 +352,6 @@ router.get("/twitch/streams", async (req, res) => {
       const promise7 = axios.get(URL7, options);
       const promise8 = axios.get(URL8, options);
 
-
       const promiseUser1 = axios.get(UserURL1, options);
       const promiseUser2 = axios.get(UserURL2, options);
       const promiseUser3 = axios.get(UserURL3, options);
@@ -323,7 +361,6 @@ router.get("/twitch/streams", async (req, res) => {
       const promiseUser7 = axios.get(UserURL7, options);
       const promiseUser8 = axios.get(UserURL8, options);
 
-
       const promiseTag1 = axios.get(UserTags1, options);
       const promiseTag2 = axios.get(UserTags2, options);
       const promiseTag3 = axios.get(UserTags3, options);
@@ -332,44 +369,6 @@ router.get("/twitch/streams", async (req, res) => {
       const promiseTag6 = axios.get(UserTags6, options);
       const promiseTag7 = axios.get(UserTags7, options);
       const promiseTag8 = axios.get(UserTags8, options);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       await axios
         .all([
@@ -438,13 +437,10 @@ router.get("/twitch/streams", async (req, res) => {
 
             allStreams.map((e) => {
               if (e.localization_names.length !== 0) {
-                e.localization_names.map((e) => {
-                });
+                e.localization_names.map((e) => {});
               }
             });
-            res.send(
-              allStreams
-            );
+            res.send(allStreams);
           })
         );
     }
