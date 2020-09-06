@@ -100,7 +100,7 @@ const VideoCard = (props) => {
         <div className="custom">
           {props.visible < props.videos.length ? (
             <span onClick={props.showClick} className="showMore">
-              <a className="showMore__button" href="#">
+              <a className="showMore__button" >
                 Show more
                 <ExpandMoreOutlinedIcon className="down__icon" />
               </a>
