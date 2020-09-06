@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./CarouselTop.css";
+import "./Carousel.css";
 import { connect } from "react-redux";
 import axios from "axios";
-import { datas } from "./carouseldata";
+
 import _ from "lodash";
-const CarouselTop = (props) => {
+const Carousel = (props) => {
   const iframeRef = useRef();
 
   const styleRef = useRef();
@@ -183,7 +183,6 @@ const CarouselTop = (props) => {
     setLoading(false);
   };
 
-
   const checkTags = (streams, i) => {
     if (streams.localization_names.length !== 1) {
       let a = _.mapKeys(streams.localization_names, "en-us");
@@ -227,12 +226,14 @@ const CarouselTop = (props) => {
   // console.log(xAuto)
   return (
     <div className="carousel">
-      <button className="btn left" onClick={moveRight}>
-        ‹
-      </button>
-      <button className="btn right" onClick={moveLeft}>
-        ›
-      </button>
+      <div className="button">
+        <button className="btn left" onClick={moveRight}>
+          ‹
+        </button>
+        <button className="btn right" onClick={moveLeft}>
+          ›
+        </button>
+      </div>
 
       <div ref={styleRef} className="slides">
         {getTwitchLiveStream.map((streams, i) => {
@@ -263,9 +264,7 @@ const CarouselTop = (props) => {
                 allowFullScreen
               ></iframe>
               {loading ? <div className="loading"></div> : null}
-              <div 
-              style={{ display: `${AutoCard}` }} 
-              className="image__card">
+              <div style={{ display: `${AutoCard}` }} className="image__card">
                 <div className="image__card__upper">
                   <img
                     src={streams.profile_image_url}
@@ -290,4 +289,4 @@ const CarouselTop = (props) => {
   );
 };
 
-export default CarouselTop;
+export default Carousel;
