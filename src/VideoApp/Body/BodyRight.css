@@ -95,10 +95,10 @@
   flex-grow: 1 !important;
 }
 .app__ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 1.1rem;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font-size: 1.1rem !important;
 }
 .app__order__1 {
   order: 1 !important;
@@ -158,6 +158,7 @@ img {
 .card__display__padding__width {
   flex: 1 0 auto;
   width: 23rem;
+
   max-width: 50%;
 }
 .card__display__height {
@@ -179,7 +180,11 @@ img {
   display: flex;
   flex-direction: column;
 }
-
+.card__display__flex__direction__margin {
+  margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
 .card__display__info__2__order__1 {
   order: 1;
 }
@@ -194,7 +199,15 @@ img {
 .card__display__flex__info__1__2__order__title__font {
   color: #1f1f23;
 }
+.app__flex__start {
+  display: flex;
+  align-items: flex-start;
+}
 .channel__font_1 {
+  display: flex;
+  align-items: flex-start;
+}
+.app__flex__start {
   display: flex;
   align-items: flex-start;
 }
@@ -216,9 +229,9 @@ img {
   margin-bottom: 5px;
   font-size: 0.8rem;
 }
-.channel__game__name {
-  color: #53535f;
-  font-size: 0.8rem;
+.app__font__7__color {
+  color: #53535f !important;
+  font-size: 0.7rem !important;
 }
 
 .channel__name {
@@ -257,7 +270,14 @@ img {
   white-space: nowrap;
   text-align: center;
 }
+.channel__tag__anchor__2 {
+  background-color: lightgrey;
 
+  width: fit-content;
+  padding: 0.2rem 0.65rem;
+  border-radius: 25px;
+  text-align: center;
+}
 .channel__icon {
   order: 1;
   margin-right: 0.5rem;

@@ -151,7 +151,7 @@ const Body = (props) => {
               <Link
                 className="channel__tag__anchor"
                 key={i}
-                style={{ marginLeft: 2, maxWidth: 70 }}
+                style={{ marginLeft: 2, maxWidth: 90 }}
                 href="#"
               >
                 {e}
@@ -162,7 +162,11 @@ const Body = (props) => {
       );
     }
     return (
-      <Link className="channel__tag__anchor" style={{ marginLeft: 2 }} href="#">
+      <Link
+        className="channel__tag__anchor"
+        style={{ marginLeft: 2, maxWidth: 90 }}
+        href="#"
+      >
         {streams.localization_names[0]["en-us"]}
       </Link>
     );

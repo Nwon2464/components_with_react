@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "./Carousel.css";
 import { connect } from "react-redux";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 import _ from "lodash";
 const Carousel = (props) => {
   const iframeRef = useRef();
@@ -188,23 +188,25 @@ const Carousel = (props) => {
         <>
           {b.map((e, i) => {
             return (
-              <a
+              <Link
+                style={{ marginLeft: 2, maxWidth: 90 }}
                 className="channel__tag__anchor"
                 key={i}
-                style={{ marginLeft: 5 }}
-                href="#"
               >
                 {e}
-              </a>
+              </Link>
             );
           })}
         </>
       );
     }
     return (
-      <a style={{ marginLeft: 5 }} href="#" className="channel__tag__anchor">
+      <Link
+        style={{ marginLeft: 2, maxWidth: 90 }}
+        className="channel__tag__anchor"
+      >
         {streams.localization_names[0]["en-us"]}
-      </a>
+      </Link>
     );
   };
 
@@ -255,6 +257,7 @@ const Carousel = (props) => {
                 // ref={iframeRef}
                 // loading="lazy"
                 // rel="preload"
+                className="app__iframe app__order__1"
                 // className="loading live"
                 width="1527.3px"
                 // width="100%"
@@ -266,24 +269,60 @@ const Carousel = (props) => {
                 allowFullScreen
               ></iframe>
               {loading ? <div className="loading"></div> : null}
-              <div style={{ display: `${AutoCard}` }} className="image__card">
-                <div className="image__card__upper">
-                  <img
-                    src={streams.profile_image_url}
-                    alt="streamJPG"
-                    className="image__card__upper__image"
-                  />
-                  <div className="image__card__upper__info">
-                    <p>{streams.user_name}</p>
-                    <a href="#">{streams.game_name}</a>
-                    <p>{checkViewers(streams.viewer_count)}</p>
+              <div
+                style={{ display: `${AutoCard}` }}
+                className="image__card app__order__2"
+              >
+                <div className="card__display__flex__direction__margin app__card__height app__width">
+                  <div
+                    className="app__order__1 app__flex__start"
+                    // image__card__upper
+                  >
+                    <div className="app__flex__grow__0 app__flex__shrink__0">
+                      {" "}
+                      <Link className="">
+                        <img
+                          src={streams.profile_image_url}
+                          alt="streamJPG"
+                          className="image__card__upper__image"
+                        />
+                      </Link>
+                    </div>{" "}
+                    <div className="app__min__width__0 app__order__2 app__flex__shrink__1 app__flex__grow__1 app__width app__flex__column app__flex app__margin__left__8">
+                      <div className="app__margin__negative__bottom">
+                        <div className="app__flex__start">
+                          <h3 className="app__font__weight ">
+                            <Link className="app__font__color app__font__size__0_8">
+                              {streams.user_name}
+                            </Link>
+                          </h3>
+                        </div>
+                      </div>
+                      <div className="app__flex__start">
+                        <h5 className=" app__font__size__0_8">
+                          <Link to="/" className="app__font__color">
+                            {streams.game_name}
+                          </Link>
+                        </h5>
+                      </div>
+                      <div className="">
+                        <h5>
+                          <Link className="app__font__7__color">
+                            {checkViewers(streams.viewer_count)}
+                          </Link>
+                        </h5>{" "}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="channel__tag__2 app__order__2 channel__tag__1">
+                    <div className="channel__tag__3">{checkTags(streams)}</div>
+                  </div>
+                  <div style={{ width: "90%" }} className="app__order__3">
+                    {/* image__card__bottom */}{" "}
+                    <Link>{streams.description}</Link>
                   </div>
                 </div>
-
-                <div style={{ maxHeight: "25px" }} className="channel__tag__3">
-                  {checkTags(streams)}
-                </div>
-                <div className="image__card__bottom">{streams.description}</div>
               </div>
             </div>
           );
