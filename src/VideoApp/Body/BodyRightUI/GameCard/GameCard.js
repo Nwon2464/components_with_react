@@ -18,16 +18,23 @@ const GameCard = (props) => {
               <div className="app__card__padding_bottom app__card__height">
                 <div className="app__relative">
                   <div className="app__flex__column app__flex app__flex__nowrap">
-                    <img
-                      className="app__img__transition app__cursor"
-                      src={e.box_art_url}
-                      alt=""
-                    />
-                    <div className="app__ellipsis app__margin__top app__flex__shrink__1 app__flex__grow__1 app__color app__font__weight app__cursor">
-                      {e.name}
+                    <div>
+                      <Link to="/streams/create">
+                        <img
+                          className="app__img__transition app__cursor"
+                          src={e.box_art_url}
+                          alt=""
+                        />
+                      </Link>
                     </div>
-                    <p>
-                      <Link className="app_cursor">
+
+                    <div className="app__ellipsis app__margin__top app__flex__shrink__1 app__flex__grow__1 app__color app__font__weight app__cursor">
+                      <Link className="app__font__size app__cursor">
+                        {e.name}
+                      </Link>
+                    </div>
+                    <p className="app__font__size">
+                      <Link className="app__cursor">
                         {props.checkViewers(e.gameViewers)}
                       </Link>
                     </p>

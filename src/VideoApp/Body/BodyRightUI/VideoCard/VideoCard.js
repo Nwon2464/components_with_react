@@ -1,14 +1,16 @@
 import React from "react";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
+import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 const VideoCard = (props) => {
   return (
     <div className="game__card">
       <div className="card__maxWidth__margin app__tower__gutter">
         <h3>
-          {props.recommend ? "Recommended " : ""}
-          <strong style={{ color: "#00b5ad" }}>{props.categories}</strong>{" "}
-          we think you'll like
+          {props.recommend ? " Recommended " : ""}
+          <strong style={{ color: "#00b5ad" }}>{props.categories}</strong> we
+          think you'll like
         </h3>
         <div className="app__relative">
           <div className="card__display__flex__wrap">
@@ -25,22 +27,25 @@ const VideoCard = (props) => {
                                 <div className="app__margin__bottom">
                                   <div className="channel__font_1">
                                     <h3 className="app__ellipsis app__font__weight">
-                                      {e.title}
+                                      <Link className="app__font__size app__cursor">
+                                        {e.title}
+                                      </Link>
                                     </h3>
                                   </div>
                                 </div>
                                 <div className="channel__user">
                                   <div>
-                                    <h4 className="channel__user__name">
-                                      {e.user_name}
+                                    <h4 className="app__ellipsis app__font__size__0_8 app__color__grey app__cursor">
+                                      <Link className="app__color__grey app__cursor app__font__size__0_8">
+                                        {e.user_name}
+                                      </Link>
                                     </h4>
                                   </div>
                                   <div>
-                                    <h5
-                                      className="channel__game__name"
-                                      href="#"
-                                    >
-                                      {e.game_name}
+                                    <h5 className="app__ellipsis app__font__size__0_8">
+                                      <Link className="app__color__grey app__cursor app__font__size__0_8">
+                                        {e.game_name}
+                                      </Link>
                                     </h5>
                                   </div>
                                 </div>
@@ -55,10 +60,12 @@ const VideoCard = (props) => {
                                 </div>
                               </div>
                               <div className="channel__icon">
-                                <img
-                                  className="channel__icon__1"
-                                  src={e.profile_image_url}
-                                />
+                                <Link>
+                                  <img
+                                    className="channel__icon__1"
+                                    src={e.profile_image_url}
+                                  />
+                                </Link>
                               </div>
                               <div className="channel__down">
                                 <MoreVertIcon />
@@ -67,13 +74,15 @@ const VideoCard = (props) => {
                           </div>
 
                           <div className="app__order__1">
-                            <div className="app__relative">
-                              <div>
-                                <img
-                                  className="channel__thumbnail"
-                                  src={e.thumbnail_url}
-                                />
-                              </div>
+                            <div className="app__relative app__cursor">
+                              <Link>
+                                <div>
+                                  <img
+                                    className="channel__thumbnail"
+                                    src={e.thumbnail_url}
+                                  />
+                                </div>
+                              </Link>
                               <div className="app__absolute app__top__0 app__left__0 app__card__height app__width">
                                 <div className="app__absolute app__top__0 app__left__0 app__margin">
                                   <p className="app__uppercase app__live__indicator app__font__weight app__border__radius app__padding">
@@ -100,7 +109,7 @@ const VideoCard = (props) => {
         <div className="custom">
           {props.visible < props.videos.length ? (
             <span onClick={props.showClick} className="showMore">
-              <a className="showMore__button" >
+              <a className="showMore__button">
                 Show more
                 <ExpandMoreOutlinedIcon className="down__icon" />
               </a>

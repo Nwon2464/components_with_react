@@ -60,9 +60,6 @@ const Carousel = (props) => {
     { autoplay: "false" },
   ]);
 
-  console.log(width);
-  console.log(autoPlay);
-
   const determineAutoplay = (index, showAnimation) => {
     const num = autoPlay[index];
     return num.autoplay;
@@ -142,17 +139,17 @@ const Carousel = (props) => {
     },
   ]);
   const moveLeft = () => {
-    let autoPlayCopyLeft = autoPlay.slice();
-    autoPlayCopyLeft.unshift(autoPlayCopyLeft.pop());
-    setAutoPlay(autoPlayCopyLeft);
+    // let autoPlayCopyLeft = autoPlay.slice();
+    // autoPlayCopyLeft.unshift(autoPlayCopyLeft.pop());
+    // setAutoPlay(autoPlayCopyLeft);
 
     let cardLeftDisplayCopy = cardDisplay.slice();
     cardLeftDisplayCopy.unshift(cardLeftDisplayCopy.pop());
     setCardDisplay(cardLeftDisplayCopy);
 
-    let widthLeftCopy = width.slice();
-    widthLeftCopy.unshift(widthLeftCopy.pop());
-    setWidth(widthLeftCopy);
+    // let widthLeftCopy = width.slice();
+    // widthLeftCopy.unshift(widthLeftCopy.pop());
+    // setWidth(widthLeftCopy);
 
     let xLeftPosition = xPos.slice();
     xLeftPosition.unshift(xLeftPosition.pop());
@@ -161,17 +158,17 @@ const Carousel = (props) => {
   };
 
   const moveRight = () => {
-    let autoPlayCopyRight = autoPlay.slice();
-    autoPlayCopyRight.push(autoPlayCopyRight.shift());
-    setAutoPlay(autoPlayCopyRight);
+    // let autoPlayCopyRight = autoPlay.slice();
+    // autoPlayCopyRight.push(autoPlayCopyRight.shift());
+    // setAutoPlay(autoPlayCopyRight);
 
     let cardRightDisplayCopy = cardDisplay.slice();
     cardRightDisplayCopy.push(cardRightDisplayCopy.shift());
     setCardDisplay(cardRightDisplayCopy);
 
-    let widthRightCopy = width.slice();
-    widthRightCopy.push(widthRightCopy.shift());
-    setWidth(widthRightCopy);
+    // let widthRightCopy = width.slice();
+    // widthRightCopy.push(widthRightCopy.shift());
+    // setWidth(widthRightCopy);
 
     let XRightPosition = xPos.slice();
     XRightPosition.push(XRightPosition.shift());
@@ -191,7 +188,12 @@ const Carousel = (props) => {
         <>
           {b.map((e, i) => {
             return (
-              <a key={i} style={{ marginLeft: 5 }} href="#">
+              <a
+                className="channel__tag__anchor"
+                key={i}
+                style={{ marginLeft: 5 }}
+                href="#"
+              >
                 {e}
               </a>
             );
@@ -200,7 +202,7 @@ const Carousel = (props) => {
       );
     }
     return (
-      <a style={{ marginLeft: 5 }} href="#">
+      <a style={{ marginLeft: 5 }} href="#" className="channel__tag__anchor">
         {streams.localization_names[0]["en-us"]}
       </a>
     );
@@ -254,9 +256,9 @@ const Carousel = (props) => {
                 // loading="lazy"
                 // rel="preload"
                 // className="loading live"
-                // width="1527.3px"
-
-                width={`${AutoWidth}`}
+                width="1527.3px"
+                // width="100%"
+                // width={`${AutoWidth}`}
                 height="300px"
                 src={`https://player.twitch.tv/?channel=${streams.user_name}&muted=true&autoplay=${AutoStyle}&parent=localhost`}
                 frameBorder="0"
@@ -278,7 +280,9 @@ const Carousel = (props) => {
                   </div>
                 </div>
 
-                <div className="image__card__middle">{checkTags(streams)}</div>
+                <div style={{ maxHeight: "25px" }} className="channel__tag__3">
+                  {checkTags(streams)}
+                </div>
                 <div className="image__card__bottom">{streams.description}</div>
               </div>
             </div>

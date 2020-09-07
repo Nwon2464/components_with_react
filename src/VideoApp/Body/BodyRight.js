@@ -11,7 +11,8 @@ import Carousel from "./BodyRightUI/Carousel/Carousel";
 import GameCard from "./BodyRightUI/GameCard/GameCard";
 // import CarouselMiddle from "./Carousel/CarouselMiddle";
 // import CarouselMiddleCategory from "./Carousel/CarouselMiddleFirst/CarouselMiddleCategory";
-
+import Loading from "./BodyRightUI/VideoCard/Loading";
+import LoadingGameCard from "./BodyRightUI/GameCard/LoadingGameCard";
 const Body = (props) => {
   const [liveVideos, setLiveVideos] = useState([]);
   const [visible, setVisible] = useState(4);
@@ -26,7 +27,7 @@ const Body = (props) => {
   // "/twitch/fortnite"
   // "/twitch/chat"
   // /twitch/fallguys
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fecthLive = async () => {
       const { data } = await axios.get(
@@ -129,6 +130,7 @@ const Body = (props) => {
         game.thumbnail_url = newUrl;
       });
       setLiveVideos(data);
+      setLoading(false);
     };
     fecthLive();
   }, []);
@@ -146,23 +148,23 @@ const Body = (props) => {
         <>
           {b.map((e, i) => {
             return (
-              <a
+              <Link
                 className="channel__tag__anchor"
                 key={i}
                 style={{ marginLeft: 2, maxWidth: 70 }}
                 href="#"
               >
                 {e}
-              </a>
+              </Link>
             );
           })}
         </>
       );
     }
     return (
-      <a className="channel__tag__anchor" style={{ marginLeft: 2 }} href="#">
+      <Link className="channel__tag__anchor" style={{ marginLeft: 2 }} href="#">
         {streams.localization_names[0]["en-us"]}
-      </a>
+      </Link>
     );
   };
 
@@ -199,78 +201,100 @@ const Body = (props) => {
       {/* <h2>Stream Lists</h2> */}
 
       <Carousel />
+      {loading ? (
+        <Loading />
+      ) : (
+        <ShowClickRender
+          render={(visible, showClick) => (
+            <VideoCard
+              categories="Live Channel"
+              videos={liveVideos}
+              visible={visible}
+              checkTags={checkTags}
+              checkViewers={checkViewers}
+              showClick={showClick}
+            />
+          )}
+        />
+      )}
+      {loading ? (
+        <LoadingGameCard />
+      ) : (
+        <GameCard
+          topGames={topGames}
+          checkViewers={checkViewers}
+          categories="Categories"
+        />
+      )}
+      {loading ? (
+        <Loading />
+      ) : (
+        <ShowClickRender
+          render={(visible, showClick) => (
+            <VideoCard
+              recommend="recommend"
+              categories="Just Chat"
+              videos={justChat}
+              visible={visible}
+              checkTags={checkTags}
+              checkViewers={checkViewers}
+              showClick={showClick}
+            />
+          )}
+        />
+      )}
+      {loading ? (
+        <Loading />
+      ) : (
+        <ShowClickRender
+          render={(visible, showClick) => (
+            <VideoCard
+              recommend="recommend"
+              categories="Fortnite"
+              showClick={showClick}
+              checkViewers={checkViewers}
+              videos={fortNite}
+              visible={visible}
+              checkTags={checkTags}
+            />
+          )}
+        />
+      )}
 
-      <ShowClickRender
-        render={(visible, showClick) => (
-          <VideoCard
-            categories="Live Channel"
-            videos={liveVideos}
-            visible={visible}
-            checkTags={checkTags}
-            checkViewers={checkViewers}
-            showClick={showClick}
-          />
-        )}
-      />
-      <GameCard
-        topGames={topGames}
-        checkViewers={checkViewers}
-        categories="Categories"
-      />
-      <ShowClickRender
-        render={(visible, showClick) => (
-          <VideoCard
-            recommend="recommend"
-            categories="Just Chat"
-            videos={justChat}
-            visible={visible}
-            checkTags={checkTags}
-            checkViewers={checkViewers}
-            showClick={showClick}
-          />
-        )}
-      />
-
-      <ShowClickRender
-        render={(visible, showClick) => (
-          <VideoCard
-            recommend="recommend"
-            categories="Fortnite"
-            showClick={showClick}
-            checkViewers={checkViewers}
-            videos={fortNite}
-            visible={visible}
-            checkTags={checkTags}
-          />
-        )}
-      />
-      <ShowClickRender
-        render={(visible, showClick) => (
-          <VideoCard
-            recommend="recommend"
-            categories="Minecraft"
-            showClick={showClick}
-            checkViewers={checkViewers}
-            videos={mineCraft}
-            visible={visible}
-            checkTags={checkTags}
-          />
-        )}
-      />
-      <ShowClickRender
-        render={(visible, showClick) => (
-          <VideoCard
-            recommend="recommend"
-            categories="Fall Guys"
-            showClick={showClick}
-            checkViewers={checkViewers}
-            videos={fallGuys}
-            visible={visible}
-            checkTags={checkTags}
-          />
-        )}
-      />
-
+      {loading ? (
+        <Loading />
+      ) : (
+        <ShowClickRender
+          render={(visible, showClick) => (
+            <VideoCard
+              recommend="recommend"
+              categories="Minecraft"
+              showClick={showClick}
+              checkViewers={checkViewers}
+              videos={mineCraft}
+              visible={visible}
+              checkTags={checkTags}
+            />
+          )}
+        />
+      )}
+      {loading ? (
+        <Loading />
+      ) : (
+        <ShowClickRender
+          render={(visible, showClick) => (
+            <VideoCard
+              recommend="recommend"
+              categories="Fall Guys"
+              showClick={showClick}
+              checkViewers={checkViewers}
+              videos={fallGuys}
+              visible={visible}
+              checkTags={checkTags}
+            />
+          )}
+        />
+      )}
       {/* {renderCreate()} */}
       {/* <VideoList onVideoSelect={props.onVideoSelect} streams={props.streams} /> */}
     </div>

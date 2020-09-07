@@ -24,6 +24,8 @@ a {
   height: 300px;
   display: flex;
   justify-content: flex-start;
+  
+  transition: all 200ms ease-out;
   /*this is for img background-size: cover;
       background-position: center center; */
 
@@ -101,9 +103,10 @@ a {
 }
 .image__card__bottom {
   position: inherit;
-  top: 10%;
+  /* top: 3rem; */
+  max-height: 13rem;
   left: 0.7rem;
-  max-width: 200px;
+  max-width: 13rem;
   font-size: smaller;
 }
 
